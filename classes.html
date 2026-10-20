@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>클래스 안내 · 예약 | 클래스로</title>
-  <link rel="stylesheet" href="style4.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- ⚠️ 공통 메뉴: 수정 금지 (바꾸고 싶으면 조장에게 요청) -->
@@ -36,7 +36,18 @@
           <a class="btn btn--outline" href="#class-list">클래스 둘러보기</a>
         </div>
       </div>
-      <p class="lead">제휴 공방 420곳의 원데이 클래스 6종. 날짜와 인원만 고르면 바로 예약 요청이 들어갑니다.</p>
+      <p class="lead">제휴 공방 420곳의 원데이 클래스 6종을 한곳에 모았어요. 날짜와 인원만 고르면 바로 예약 요청이 들어가요.</p>
+      <div class="hero-media">
+        <figure class="class-photo">
+          <img src="images/classes-pottery.svg" alt="도자기 클래스 예시 이미지" width="800" height="600">
+        </figure>
+        <figure class="class-photo">
+          <img src="images/classes-flower.svg" alt="플라워 클래스 예시 이미지" width="800" height="600">
+        </figure>
+        <figure class="class-photo">
+          <img src="images/classes-baking.svg" alt="베이킹 클래스 예시 이미지" width="800" height="600">
+        </figure>
+      </div>
     </section>
 
     <section class="section" id="class-list">
@@ -142,23 +153,46 @@
       <p class="legal">* 가격은 1인 기준, 재료비 포함 · 제휴 공방 수는 예시</p>
     </section>
 
+    <section class="section" aria-labelledby="stats-title">
+      <h2 id="stats-title">숫자로 보는 클래스로</h2>
+      <ul class="stats">
+        <li class="stat">
+          <span class="stat-label">제휴 공방</span>
+          <span class="stat-num" data-count="420">420</span><span class="stat-unit">곳</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">월 예약</span>
+          <span class="stat-num" data-count="7000">7,000</span><span class="stat-unit">건</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">클래스 종류</span>
+          <span class="stat-num" data-count="6">6</span><span class="stat-unit">종</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">평균 결제액</span>
+          <span class="stat-num" data-count="42000">42,000</span><span class="stat-unit">원</span>
+        </li>
+      </ul>
+      <p class="legal">* 2026년 9월 기준 · 평균 결제액은 1인 기준</p>
+    </section>
+
     <section class="section">
       <h2>예약 방법</h2>
       <ol class="cards">
         <li class="card">
           <span class="plate">01</span>
           <h3>클래스·날짜·인원 선택</h3>
-          <p>듣고 싶은 클래스와 날짜, 함께 갈 인원을 고릅니다.</p>
+          <p>듣고 싶은 클래스와 날짜, 함께 갈 인원을 골라요.</p>
         </li>
         <li class="card">
           <span class="plate">02</span>
           <h3>결제</h3>
-          <p>1인 금액 × 인원으로 결제합니다.</p>
+          <p>1인 금액 × 인원으로 결제해요.</p>
         </li>
         <li class="card">
           <span class="plate">03</span>
           <h3>예약 완료</h3>
-          <p>공방이 확인하면 문자로 확정 안내가 옵니다.</p>
+          <p>공방이 확인하면 문자로 확정 안내가 와요.</p>
         </li>
       </ol>
     </section>
@@ -167,7 +201,7 @@
       <div>
         <h2>예약하기</h2>
         <p class="lead">원하는 날짜를 남겨 주시면 공방에서 확인 후 연락드려요.</p>
-        <p class="legal">* 수업용 페이지 — 실제 결제는 없습니다</p>
+        <p class="legal">* 수업용 페이지라 실제 결제는 없어요</p>
       </div>
       <div class="form-card">
         <form id="booking-form">
@@ -249,6 +283,32 @@
             photo.style.setProperty('--tx', '0px');
             photo.style.setProperty('--ty', '0px');
           });
+        });
+      }
+
+      // 숫자: 화면에 보이면 0부터 목표값까지 올라감 (한 번만)
+      var counters = document.querySelectorAll('[data-count]');
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        var countObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            var target = Number(el.dataset.count);
+            var start = null;
+            countObserver.unobserve(el);
+            function step(now) {
+              if (start === null) start = now;
+              var t = Math.min((now - start) / 1200, 1);
+              var eased = 1 - Math.pow(1 - t, 3);
+              el.textContent = Math.round(target * eased).toLocaleString('ko-KR');
+              if (t < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }, { threshold: 0.5 });
+        counters.forEach(function (el) {
+          el.textContent = '0';
+          countObserver.observe(el);
         });
       }
 

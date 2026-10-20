@@ -1,365 +1,247 @@
-# ORYZO AI — Style Reference
-> Darkroom product editorial. A lone object floating in warm darkness, cream typography the only decoration.
+# 클래스로 — Style Reference v3
+> 동네 공방의 따뜻함을 숫자와 이야기로 보여주는 미색 종이. 굵은 한글 제목, 검정 알약 버튼, 둥근 파스텔 그림, 굴러 올라가는 숫자.
 
-**Theme:** dark
+**Theme:** light
+**기반:** 이전 시안 v2(ElevenLabs — 절제된 에디토리얼, 알약 버튼, 그림자 최소화)
+**참고:** 당근 회사소개 페이지(about.daangn.com) — **구성만** 참고: 굵은 한글 제목, 16px 둥근 미디어, 카테고리 탭 + 이야기 카드, 숫자 카운터, 보도자료 목록. **색은 참고하지 않고 v2 팔레트를 그대로 쓴다.**
+**적용 파일:** `style.css`
 
-Source measurements are normalized; roles and recommendations are interpreted. Font summary lists are independent, not paired by position. HTML examples are reconstructions, not source components.
+v2가 "속삭이는 얇은 제목 + 무채색"으로 고급스러움을 냈다면, v3는 **같은 색 위에서 동네 서비스다운 친근함**으로 옮겨 갑니다. 제목은 굵고 짧게, 설명은 말하듯이. 색은 v2처럼 97% 무채색(미색·베이지·검정)을 지키고, 따뜻함은 **파스텔 일러스트와 옅은 패널 톤**이 맡습니다. 페이지는 "한 줄 제목 → 큰 사진 → 이야기 → 숫자 → 다음 행동" 순서로 흐릅니다.
 
-The ORYZO visual system treats a single product object like a museum artifact: full-bleed warm-dark canvas, cream typography floating in generous negative space, and zero UI chrome competing with the form. Every text element is uppercase at weight 500, with the sole exception of body copy at 29px/400 which is the system's only conversational voice. A single vivid orange appears only for credit lines and the studio link — never for buttons or CTAs — earning its rarity. The layout alternates between two modes: photographic hero (the product in context with tools and materials) and void-mode reveal (the product isolated on warm dark), connected by hairline dashed dividers and pill-shaped controls.
+## v2 → v3 무엇이 바뀌었나
+
+| 항목 | v2 | v3 (현재) | 이유 |
+|------|--------------|--------------|------|
+| 바탕 | 에그셸 `#fdfcfc` + 베이지 `#f5f3f1` | **그대로** 에그셸 + 웜 토프 + 스톤 | 팀이 고른 따뜻한 종이 느낌 유지 |
+| 제목 | Waldenburg 300 (아주 얇게) | Pretendard 700 (굵게), 자간 -0.03em | 한글은 얇으면 힘이 없음. 짧고 굵은 문장이 동네 서비스의 목소리 |
+| 강조색 | 그래픽 안에서만 (버튼 금지) | **그대로** 검정 주 버튼, 오렌지 `#ff4704`는 선택 표시 점(6px)에만 | 색 대신 검정 채움의 대비로 "누를 곳"을 보여줌 |
+| 카드 | 베이지 단색 | 베이지 계열 + 클래스별로 아주 옅은 따뜻한 톤(피치·버터·로즈·세이지·안개·라벤더) | 무채색 느낌은 지키면서 클래스마다 살짝 구분 |
+| 모서리 | 카드 20 / 큰 카드 24 | 카드·사진 16 / 큰 미디어 24 | 참고 사이트 기준, 사진 위주라 조금 단단하게 |
+| 그림자 | 거의 없음 | 기본 없음, 마우스 올릴 때만 부드럽게 | 그대로 절제, 반응만 추가 |
+| 움직임 | 탭 전환 정도 | 스크롤 떠오르기, 숫자 카운트, 카드 호버, 탭 전환 | 신뢰(숫자)와 이야기를 리듬 있게 보여줌 |
+| 글꼴 | Inter + Noto Sans KR | Pretendard 하나 (영문·한글 모두) | 한글 굵기 단계가 고르고 무료 |
 
 ## Tokens — Colors
 
+색은 v2(ElevenLabs)를 그대로 쓴다.
+
 | Name | Value | Token | Role |
 |------|-------|-------|------|
-| Warm Cream | `#ffedd7` | `--color-warm-cream` | Light text on dark surfaces, inverse labels, and high-contrast captions. |
-| Walnut Shadow | `#100904` | `--color-walnut-shadow` | Page canvas and deepest background — warm near-black, not pure black. The void behind every product reveal |
-| Bark Brown | `#382416` | `--color-bark-brown` | Elevated surface and filled button background — the one chromatic step above the canvas, used for the single solid CTA |
-| Cork Border | `#40372e` | `--color-cork-border` | Hairline dividers, dashed section separators, subtle container borders — warmer than the canvas by one step |
-| Driftwood | `#6c5f51` | `--color-driftwood` | Mid-tone warm gray for secondary dividers and muted structural elements — the bridge between Bark and Cream |
-| Ember Accent | `#dc5000` | `--color-ember-accent` | Orange text accent for links, tags, and emphasized short phrases. |
-| Pure Black | `#000000` | `--color-pure-black` | SVG icon fills and decorative vector elements only — never used as a background or text color |
+| Eggshell | `#fdfcfc` | `--paper` | 페이지 바탕, 폼 카드 — 순백 대신 종이 같은 미색 |
+| Warm Taupe | `#f5f3f1` | `--surface` | 보조 면: 베이지 버튼, 탭 묶음, 입력칸, 예약 영역 |
+| Stone | `#ebe8e4` | `--line` | 구분선, 카드 테두리, 번호 원 바탕 |
+| Ink | `#000000` | `--ink` / `--accent` | 제목·본문, **주 버튼**, 선택된 탭 바탕 |
+| Graphite | `#44403b` | `--body` | 긴 설명 문단 |
+| Smoke | `#777169` | `--muted` | 라벨, 날짜, 숫자 단위 |
+| Ash | `#a59f97` | `--faint` | 가장 흐린 주석 |
+| Ember Spark | `#ff4704` | `--spark` | **선택 표시 점(메뉴 현재 페이지, 선택된 탭)에만** 4–6px 크기로 |
+
+### 클래스 패널 톤 (아주 옅게)
+
+| Name | Value | Token | 클래스 |
+|------|-------|-------|--------|
+| Peach | `#f8f0ea` | `--tint-peach` | 도자기 |
+| Butter | `#f7f2e6` | `--tint-butter` | 베이킹 |
+| Rose | `#f7eeee` | `--tint-rose` | 가죽공예 |
+| Sage | `#eff3ee` | `--tint-mint` | 플라워 |
+| Mist | `#eef1f3` | `--tint-sky` | 드로잉 |
+| Lavender | `#f2eff4` | `--tint-lilac` | 향수 |
+
+패널 톤은 베이지에 일러스트 색을 한 방울 섞은 정도로만. 글자는 항상 Ink/Graphite/Smoke.
 
 ## Tokens — Typography
 
-### halyard-display-variable — The only typeface. Weight 500 at 51px drives display headlines with extreme uppercase confidence; the same family at weight 400 / 29px becomes the system's sole mixed-case body voice. Letter-spacing stays normal — the geometric forms do the work without tightening. Substitute: 'Inter', 'Söhne', or 'Neue Haas Grotesk' for close structural match. · `--font-halyard-display-variable`
-- **Substitute:** Inter or Söhne
-- **Weights:** 400, 500
-- **Sizes:** 8, 10, 12, 14, 15, 18, 24, 29, 41, 51px
-- **Line height:** 0.90–1.26
-- **Letter spacing:** normal across all sizes — no negative tracking even at display scale, the font's geometry handles visual weight without compression
-- **OpenType features:** `"ss01" on`
-- **Role:** The only typeface. Weight 500 at 51px drives display headlines with extreme uppercase confidence; the same family at weight 400 / 29px becomes the system's sole mixed-case body voice. Letter-spacing stays normal — the geometric forms do the work without tightening. Substitute: 'Inter', 'Söhne', or 'Neue Haas Grotesk' for close structural match.
-
-### Arial — System fallback for micro-legal labels (8px uppercase credits like "* ADOBE ILLUSTRATOR"). Not a design choice — a necessity for system-rendered disclaimers. · `--font-arial`
-- **Substitute:** system-ui
-- **Weights:** 400, 500
-- **Sizes:** 8px
-- **Line height:** 1.20
-- **Role:** System fallback for micro-legal labels (8px uppercase credits like "* ADOBE ILLUSTRATOR"). Not a design choice — a necessity for system-rendered disclaimers.
+### Pretendard — 유일한 글꼴 · `--font`
+- **대체:** Karrot Sans(참고 사이트 전용 글꼴) → 무료 Pretendard
+- **Weights:** 400(본문), 700(제목·버튼·숫자)
+- **불러오기:** `https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css`
+- **자간:** 제목 -0.03em, 본문 -0.01em (한글은 좁힐수록 단단해 보임)
+- **단어 끊김:** `word-break: keep-all` — 한글 단어 중간에서 줄 바꿈 금지
 
 ### Type Scale
 
-| Role | Family | Weight | Size | Line Height | Letter Spacing | Token |
-|------|--------|--------|------|-------------|----------------|-------|
-| subheading | — | — | 18px | 1 | 0px | `--text-subheading` |
-| heading-sm | — | — | 24px | 1.09 | 0px | `--text-heading-sm` |
-| body | — | — | 29px | 1.26 | 0px | `--text-body` |
-| heading | — | — | 41px | 0.9 | 0px | `--text-heading` |
-| display | — | — | 51px | 0.9 | 0px | `--text-display` |
+| Role | Size (데스크톱 / 모바일) | Weight | Line Height | Letter Spacing | 쓰임 |
+|------|--------------------------|--------|-------------|----------------|------|
+| display | 56px / 34px | 700 | 1.25 | -0.03em | 페이지 첫 문장 (h1) |
+| heading | 42px / 28px | 700 | 1.3 | -0.03em | 섹션 제목 (h2) |
+| stat | 48px / 32px | 700 | 1.1 | -0.02em | 통계 숫자 |
+| title | 28px / 22px | 700 | 1.35 | -0.02em | 카드·패널 제목 (h3) |
+| body-lg | 20px / 18px | 400 | 1.6 | -0.01em | 소개 문단 (.lead) |
+| body | 16px | 400 | 1.65 | -0.01em | 본문 |
+| label | 14px | 700 | 1.4 | 0 | 탭, 버튼, 라벨 |
+| caption | 13px | 400 | 1.5 | 0 | 날짜, 주석 |
 
 ## Tokens — Spacing & Shapes
 
-**Density:** comfortable
+**Base unit:** 4px · **Density:** comfortable
 
-### Spacing Scale
-
-| Name | Value | Token |
-|------|-------|-------|
-| 6 | 6px | `--spacing-6` |
-| 8 | 8px | `--spacing-8` |
-| 9 | 9px | `--spacing-9` |
-| 10 | 10px | `--spacing-10` |
-| 12 | 12px | `--spacing-12` |
-| 14 | 14px | `--spacing-14` |
-| 18 | 18px | `--spacing-18` |
-| 24 | 24px | `--spacing-24` |
-| 31 | 31px | `--spacing-31` |
-| 41 | 41px | `--spacing-41` |
-| 45 | 45px | `--spacing-45` |
-| 68 | 68px | `--spacing-68` |
-| 204 | 204px | `--spacing-204` |
+| 이름 | 값 | 쓰임 |
+|------|----|------|
+| `--space-section` | 160px (모바일 96px) | 섹션 사이 |
+| `--space-block` | 48px | 섹션 제목 ↔ 내용 |
+| `--gap` | 16px (큰 그리드 24px) | 카드 사이 |
+| `--pad-card` | 32px (모바일 24px) | 카드 안쪽 |
+| `--container` | 1152px | 본문 최대 폭 |
+| `--gutter` | 24px (모바일 16px) | 화면 좌우 여백 |
 
 ### Border Radius
 
-| Element | Value |
-|---------|-------|
-| cards | 12px |
-| inputs | 0px |
-| full-round | 9999px |
-| buttons-pill | 36px |
-| buttons-outlined | 22.5px |
+| Element | Value | Token |
+|---------|-------|-------|
+| 카드, 사진, 패널 | 16px | `--radius` |
+| 큰 미디어(첫 화면 사진·영상) | 24px | `--radius-lg` |
+| 입력칸 | 12px | `--radius-input` |
+| 버튼, 탭, 태그 | 999px | `--radius-pill` |
 
-### Layout
+## Elevation
 
-- **Card padding:** 24px
-- **Element gap:** 18px
+- 기본은 **그림자 없음**. 면 구분은 에그셸(`#fdfcfc`) ↔ 웜 토프(`#f5f3f1`) ↔ 스톤(`#ebe8e4`)으로.
+- 마우스를 올린 카드·목록만: `0 8px 24px rgba(26, 28, 32, 0.08)` (0.2초)
+- 테두리가 필요하면 1px `#ebe8e4`.
+
+## Motion
+
+| 토큰 | 값 | 쓰임 |
+|------|----|------|
+| `--dur-fast` | 200ms | 버튼·탭·카드 호버 (참고 사이트 `.2s`) |
+| `--dur` | 250ms | 패널 전환, 안내 박스 등장 |
+| `--dur-reveal` | 600ms | 스크롤로 섹션이 떠오름 |
+| `--dur-count` | 1200ms | 숫자 카운트 |
+| `--ease` | `cubic-bezier(0.2, 0.7, 0.2, 1)` | 공통 |
+
+- 움직이는 속성은 `opacity`, `transform`, `box-shadow`, 색만.
+- 숫자는 화면에 보일 때 0부터 목표값까지 올라가고, 끝나면 멈춘다(반복 없음).
+- `prefers-reduced-motion: reduce`면 모든 움직임을 끄고 최종 상태를 바로 보여준다.
 
 ## Components
 
-### Pill Button (Filled)
-**Role:** Primary solid CTA — used once on the page for the Lusion studio link
+### Top Navigation
+에그셸 바탕, 높이 64px, 아래 1px Stone. 왼쪽 로고(700, 20px), 오른쪽 메뉴(14px 700, Smoke → 마우스 올리면 Ink). 현재 페이지는 Ink 글자 + 아래 오렌지 점(4px).
 
-36px border-radius, Bark Brown (#382416) background, Warm Cream (#ffedd7) text, 14px 24px vertical/horizontal padding, weight 500, uppercase, 8–14px size. The only filled action surface in the system — its rarity is the signal.
+### Page Hero
+왼쪽 정렬 display 제목 한 줄(짧게), 아래 소개 문단(body-lg, Graphite), 그 아래 버튼 2개(검정 주 버튼 + 베이지 보조 버튼). 넓은 화면에선 제목/설명이 2단 비대칭.
 
-### Outlined Ghost Button
-**Role:** Secondary action or decorative button — cream border on transparent fill
+### Primary Button (주 버튼)
+Ink `#000` 채움, 에그셸 글자, 999px, 15px 700, 패딩 14px 24px. 호버 시 살짝 옅게, 누르면 `scale(0.97)`. **한 섹션에 하나.** 색 있는 버튼은 만들지 않는다.
 
-22.5px border-radius, transparent background, 1px Warm Cream border, Warm Cream text, 7.5px vertical padding, 0px horizontal padding, weight 500, uppercase, 8–14px. Border does the work; no fill needed.
+### Secondary Button (보조 버튼)
+Warm Taupe `#f5f3f1` 채움, Ink 글자, 999px. 호버 시 Stone `#ebe8e4`.
 
-### Underline Text Link
-**Role:** Inline links and navigation items — borderless, relying on underline
+### Text Link with Arrow
+Ink 700 + 끝에 "→". 마우스 올리면 화살표가 4px 오른쪽으로.
 
-0px radius, transparent background, Warm Cream text, 0px padding, weight 500, uppercase, 12–14px. The default interaction — no container, just text with an underline indicator.
+### Category Tabs (카테고리 탭)
+Warm Taupe 바탕의 알약 묶음 안에 탭 알약. 선택된 탭 = Ink 바탕 + 에그셸 글자 + 앞에 오렌지 점, 나머지 = 투명 + Smoke 글자. ←/→ 키로 이동.
 
-### Input Field (Underline Only)
-**Role:** Minimal form input — bottom border only, no full outline
+### Story / Class Panel (이야기·클래스 패널)
+클래스 패널 톤 바탕, 24px, 패딩 48px. 왼쪽 라벨(Smoke caption 700) → 제목(title) → 설명(body) → 정보 표, 오른쪽 둥근 그림(16px, 4:3). 탭 전환 시 아래에서 12px 떠오르며 등장.
 
-0px radius, transparent background, 1px Warm Cream bottom border, Warm Cream text, 1px 2px padding, 36px right padding for an inline action. The form mirrors the ghost-button restraint — no boxes, just a line.
+### Stat Counter (숫자 카운터)
+4칸 그리드. 위 라벨(14px Smoke), 아래 숫자(stat, Ink) + 단위(title 크기, Smoke). 칸 사이 1px Stone 세로선. 화면에 들어오면 카운트.
 
-### Fixed Top Navigation
-**Role:** Persistent site navigation — minimal, 4 items, uppercase micro-type
+### Step Card (단계 카드)
+에그셸 바탕 + 1px Stone 테두리, 16px, 패딩 32px. 왼쪽 위 원형 번호(Stone 바탕, Ink 글자). 호버 시 그림자 + 2px 위로.
 
-Logo wordmark "ORYZO" left-aligned in Warm Cream at 12–14px weight 500 uppercase. Right-aligned nav items: INTRO (with dashed underline indicator for active), FEATURES, PRODUCT, CONTACT — all 12px weight 500 uppercase, Warm Cream. Transparent background over the hero photograph.
+### News / List Row (소식 목록)
+제목(18px 700) + 날짜(caption Smoke), 줄 사이 1px Stone. 호버 시 제목 밑줄 + 화살표.
 
-### Vertical Sidebar Label
-**Role:** Edge branding — vertical text running down the right margin
+### Form (예약 폼)
+에그셸 카드(16px, 1px Stone) 안에 라벨(14px 700) + 입력칸(Warm Taupe 바탕, 테두리 없음, 12px, 높이 52px). 포커스 시 에그셸 바탕 + Ink 2px 테두리. 제출 버튼은 검정 주 버튼 꽉 채움.
 
-Rotated 90° text "ORYZO 1-MODEL" in Warm Cream, 10–12px uppercase, sits flush right. Functions as a product serial number — a physical-product artifact translated to UI.
-
-### Logo Wordmark
-**Role:** Brand identifier — the only graphical mark
-
-"ORYZO" in Halyard Display Variable weight 500 uppercase, up to 51px+ at display scale with 0.9 line-height. Used at two sizes: navigation lockup (12–14px) and hero lockup (51px+). No icon, no symbol — pure typographic identity.
-
-### Hero Overlay Info Card
-**Role:** Semi-transparent attribution card in the hero
-
-12px border-radius, semi-transparent Warm Cream or dark fill with low opacity, contains uppercase heading "DESIGNED BY LUSION, THE AWARD-WINNING DESIGN STUDIO." plus a dashed divider and body text. Overlays the hero photograph bottom-left.
-
-### Product Reveal Section
-**Role:** Full-viewport void-mode section — centered 3D render with flanking text
-
-100vh height, Walnut Shadow (#100904) background, centered 3D product render, left-aligned heading at 41px uppercase "ISN'T JUST A COASTER.", right-aligned body copy at 29px weight 400 mixed-case. The signature layout pattern — three columns, generous gutters.
-
-### Section Divider (Dashed Hairline)
-**Role:** Visual separator between content blocks
-
-1px dashed line in Cork Border (#40372e) or Driftwood (#6c5f51). Used sparingly between text blocks, never as decoration — always carrying structural meaning.
-
-### Video Thumbnail Card
-**Role:** Embedded video preview with play indicator
-
-Small rectangular card, 12px radius, positioned in the lower-right of the hero. Contains a miniature ORYZO wordmark and a play icon. Functions as a secondary entry point without competing with the primary CTA.
-
-### Legal/Disclaimer Text
-**Role:** System-rendered micro-copy in Arial 8px
-
-Fallback font (Arial 8px weight 500 uppercase) for things like "* ADOBE ILLUSTRATOR" footnotes. Visually subordinate — intentionally uses a different typeface to signal "this is not design, this is compliance."
+### CTA Band
+Warm Taupe 바탕, 24px, 왼쪽 제목 + 오른쪽 검정 주 버튼.
 
 ## Do's and Don'ts
 
 ### Do
-- Set all UI text in #ffedd7 (Warm Cream) — never use pure #fff; the warm tint is the system's signature.
-- Use #dc5000 (Ember) only for credit lines, the "Built by" label, and the Lusion studio link — a single accent earns its rarity through restraint.
-- Set type in uppercase weight 500 across the entire interface; use weight 400 / mixed case only for the 29px body copy that explains the product.
-- Use 36px border-radius for the one filled CTA and 22.5px for outlined ghost buttons; 12px for cards; 0px for inputs and inline links — these four values are the entire radius vocabulary.
-- Set section gaps at 100vh — each section gets its own full viewport, never compress product reveals into bands.
-- Use 1px dashed lines in #40372 for section dividers; avoid solid dividers and avoid any divider thicker than 2px.
-- Center the 3D product render in every void-mode section with text flanking symmetrically left and right at 18px gutters.
+- 제목은 Pretendard 700, 한 줄에 끝나게 짧게 쓴다.
+- "누를 곳"은 색이 아니라 검정 채움으로 보여준다. 오렌지는 선택 표시 점에만.
+- 패널 바탕은 아주 옅은 클래스 톤으로 구분하고, 글자는 Ink/Graphite/Smoke만 쓴다.
+- 사진·일러스트는 항상 16px(큰 것은 24px) 둥근 틀 안에 `object-fit: cover`로.
+- 숫자(공방 420곳, 클래스 6종, 1인 42,000원)는 크게 보여준다 — 신뢰는 숫자에서 온다.
+- 모든 문장은 말하듯이 "~해요" 체로.
 
 ### Don't
-- Never use pure #fff for text or #000 for backgrounds — the warm cream and walnut shadow are the system; purity reads as wrong here.
-- Never apply #dc5000 to buttons, CTAs, or interactive surfaces — the orange is editorial credit only.
-- Never use lowercase or sentence-case for headings, nav, or labels; the only mixed-case text is the 29px body description.
-- Never add drop shadows to cards, buttons, or sections — depth comes from the two-step surface stack (#100904 → #382416), not from blur.
-- Never use border-radius below 12px on containers — the geometry is deliberately chunky, not sharp.
-- Never use more than one filled button per section; restraint is the design language.
-- Never center-align body copy — headings and body text are always left-aligned, even when flanking a centered image.
-
-## Surfaces
-
-| Level | Name | Value | Purpose |
-|-------|------|-------|---------|
-| 0 | Walnut Shadow | `#100904` | Full-bleed page canvas and section background |
-| 1 | Bark Brown | `#382416` | Filled button surface, the only elevated solid |
-| 2 | Cork Border | `#40372` | Hairline borders, dashed dividers, card outlines |
-| 3 | Warm Cream | `#ffedd7` | Foreground text, navigation, interactive borders |
-
-## Elevation
-
-The system rejects shadow-based elevation entirely. Depth is achieved through a two-step surface stack: #100904 (canvas) → #382416 (elevated solid). There are no blur, no offset, no opacity-based shadows — only a 1–2 value luminance step. This keeps the interface flat and editorial, letting the 3D product renders provide all visual depth in void-mode sections.
+- 주황·파랑 등 색 있는 버튼, 색 글씨, 색 테두리를 만들지 않는다. 색은 일러스트 안과 선택 점에만.
+- 순백 `#ffffff` 바탕을 쓰지 않는다 — 항상 에그셸 `#fdfcfc`.
+- 주 버튼(검정)을 한 섹션에 두 개 이상 두지 않는다.
+- 패널 톤 위에 또 다른 패널 톤 카드를 겹치지 않는다.
+- 얇은 제목(300)을 쓰지 않는다 — v2의 흔적은 한글에서 힘이 없다.
+- 그림자를 기본 상태에 깔지 않는다. 호버 반응으로만.
+- 4px 미만의 날카로운 모서리를 쓰지 않는다.
 
 ## Imagery
 
-Photography is editorial, top-down, and in-context: the cork coaster sits on a green cutting mat surrounded by pencils, a craft knife, and a paperclip — tools of the craft visible in frame. The green cutting mat (#445231) is a hero-only element, not a UI token. 3D renders dominate the product reveal sections: the cork coaster is shown isolated against Walnut Shadow, lit from the upper right with a warm rim light, rotating from top-down to 3/4 angle between sections. No lifestyle photography, no people, no stock imagery — the object is the hero and the tools are its context. Images are full-bleed, sharp-edged (no rounded masks), and treated with high contrast and warm grading.
+참고 사이트는 실제 이웃의 손·얼굴·동네를 가까이 찍은 따뜻한 사진을 큰 둥근 틀에 담는다. 클래스로는 아직 실제 사진이 없으므로 **파스텔 톤 오일 파스텔 일러스트**(`images/classes-*.svg`)를 같은 틀에 넣는다. 실제 사진으로 바꿀 땐 같은 이름의 `.jpg`(500KB 이하)로 교체한다. 사진에 글자를 겹치지 않는다.
 
 ## Layout
 
-Full-bleed throughout — no max-width container, every section spans 100vw. Hero: full-viewport top-down photograph with a massive ORYZO wordmark (51px+) in the upper-left, tagline above, fixed minimal nav upper-right, vertical sidebar label running down the right edge, semi-transparent info card lower-left, video thumbnail lower-right. Subsequent sections: full-viewport Walnut Shadow canvas with a centered 3D product render flanked by left-aligned heading and right-aligned body copy — a three-column grid (text / object / text) with generous 18px gutters. Section transitions are seamless dark-on-dark; the only breaks are hairline dashed dividers. Navigation is fixed, transparent, and 4 items max. No sidebar, no footer chrome, no cards-within-cards — every screen is a single statement.
+- 본문 폭 1152px 가운데 정렬, 좌우 여백 24px(모바일 16px).
+- 흐름: **한 줄 제목 → 소개 + 버튼 → 카테고리 탭 패널 → 숫자 → 단계 → 예약 폼(CTA)**.
+- 섹션 사이 160px(모바일 96px). 섹션 제목은 왼쪽 정렬, 제목 아래 48px 띄우고 내용.
+- 900px 이하에서 모든 2단은 1단으로, 숫자 4칸은 2칸으로.
 
-## Typography Voice
+## style.css 클래스 대응표
 
-The system has exactly two typographic modes:
-
-1. UPPERCASE WEIGHT 500 — the default for everything: nav, headings, labels, links, button text, legal. The voice is declarative, confident, museum-label. Sizes range from 8px (legal) to 51px (display). Line-height tightens with size: 1.2 at caption, 1.0 at body-sm, 0.9 at display. No letter-spacing adjustment — the font's geometry is tight enough at every scale.
-
-2. MIXED CASE WEIGHT 400 — the exception, used only at 29px for the descriptive body copy that explains the product. This is the system's only conversational voice: "Designed to lift, insulate, and grip in all the right ways. Oryzo makes the simplest moment feel considered." The weight drop and case change are the signal — when the text shifts from 500/UPPER to 400/mixed, the user knows they are reading description, not label.
-
-The bold signature: line-height 0.9 at 41–51px display sizes. This is unusually tight — most editorial sites use 1.0–1.1. At 0.9, the uppercase letterforms overlap their line-height bounds, creating a sculptural block effect. The display type doesn't sit in lines; it stacks as solid form.
-
-## Agent Prompt Guide
-
-## Quick Color Reference
-- text: #ffedd7 (Warm Cream)
-- background: #100904 (Walnut Shadow)
-- surface: #382416 (Bark Brown)
-- border: #40372e (Cork Border)
-- accent: #dc5000 (Ember)
-- primary action: no distinct CTA color
-
-## 3-5 Example Component Prompts
-
-1. **Hero Lockup:** Full-bleed Walnut Shadow (#100904) canvas. ORYZO wordmark at 51px Halyard Display Variable weight 500 uppercase, line-height 0.9, color #ffedd7, positioned upper-left with 24px margin. Tagline "MADE FOR MUGS, BUILT FOR TABLES." at 12px weight 500 uppercase above the wordmark, also #ffedd7.
-
-No distinct primary action color was observed; use the extracted neutral button treatments instead of inventing a filled CTA color.
-
-3. **Ghost Outline Button:** Transparent background, 1px Warm Cream (#ffedd7) border, 22.5px border-radius, 7.5px vertical padding, Warm Cream text at 12px weight 500 uppercase. The secondary action vocabulary.
-
-4. **Product Reveal Section:** Full-viewport (100vh) Walnut Shadow (#100904) background. Centered 3D product render occupying the middle 40% of width. Left column: heading "ISN'T JUST A COASTER." at 41px weight 500 uppercase, line-height 0.9, #ffedd7, left-aligned. Right column: body copy at 29px weight 400 mixed-case, line-height 1.26, #ffedd7, left-aligned within the column. 18px gutter between the centered object and each text column.
-
-5. **Top Navigation:** Fixed position, transparent background, full-width. Left: ORYZO wordmark at 12px Halyard weight 500 uppercase #ffedd7. Right: four nav items (INTRO, FEATURES, PRODUCT, CONTACT) at 12px weight 500 uppercase #ffedd7, with a 1px dashed #40372e underline beneath the active item.
-
-## Similar Brands
-
-- **Lusion (the studio credited in the design)** — Same warm-dark editorial canvas, single-product hero treatment, pill-button controls, and 3D product renders as the visual centerpiece
-- **Active Theory** — Full-bleed dark mode with a single interactive 3D object commanding the viewport, minimal UI chrome, and oversized uppercase type
-- **Resn** — Editorial product-showcase sites with top-down craft photography, warm grading, and typography that steps back to let the object speak
-- **Tool of North America** — Studio portfolio sites that treat a single concept object with museum-presentation gravity — dark void, cream labels, generous negative space
-- **Buck (studio)** — Work-reveal layouts that alternate between photographic context and isolated product renders against near-black backgrounds
+| 클래스 | 역할 |
+|--------|------|
+| `.lead` | 소개 문단 (body-lg) |
+| `.section` | 섹션 간격 |
+| `.hero`, `.display`, `.actions`, `.hero-media` | 첫 화면 제목·설명·버튼 묶음, 큰 그림 3장 |
+| `.btn` / `.btn--outline` | 검정 주 버튼 / 베이지 보조 버튼 |
+| `.tabs`, `.tab` | 카테고리 탭 |
+| `.panel`, `.class-photo` | 클래스 패널(옅은 톤 자동), 둥근 사진 |
+| `.stats`, `.stat`, `.stat-num`, `.stat-unit`, `.stat-label` | 숫자 카운터 (v3 새 부품) |
+| `.cards` + `.card`, `.plate` | 단계 카드, 원형 번호 |
+| `.list`, `.list-item` | 소식 목록 (v3 새 부품) |
+| `.booking`, `.form-card`, `.form-row` | 예약 영역, 폼 |
+| `.tag`, `.mono`, `.legal`, `.info-table` | 태그, 작은 라벨, 주석, 정보 표 |
+| `.band`, `.band--dark`, `.band--lime`, `.band--pink` | 강조 박스 (베이지 / 검정 / 미색 카드 / 로즈) |
+| `.will-reveal` + `.is-visible` | 스크롤 떠오르기 (JS가 붙임) |
 
 ## Quick Start
 
-### CSS Custom Properties
-
 ```css
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+
 :root {
-  /* Colors */
-  --color-warm-cream: #ffedd7;
-  --color-walnut-shadow: #100904;
-  --color-bark-brown: #382416;
-  --color-cork-border: #40372e;
-  --color-driftwood: #6c5f51;
-  --color-ember-accent: #dc5000;
-  --color-pure-black: #000000;
+  /* Colors (v2 팔레트) */
+  --paper: #fdfcfc;
+  --surface: #f5f3f1;
+  --line: #ebe8e4;
+  --ink: #000000;
+  --body: #44403b;
+  --muted: #777169;
+  --faint: #a59f97;
+  --accent: #000000;
+  --accent-strong: #2b2825;
+  --accent-soft: #f5f3f1;
+  --spark: #ff4704;
+  --tint-peach: #f8f0ea;
+  --tint-butter: #f7f2e6;
+  --tint-rose: #f7eeee;
+  --tint-mint: #eff3ee;
+  --tint-sky: #eef1f3;
+  --tint-lilac: #f2eff4;
 
-  /* Typography — Font Families */
-  --font-halyard-display-variable: 'halyard-display-variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-arial: 'Arial', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Type */
+  --font: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
 
-  /* Typography — Scale */
-  --text-subheading: 18px;
-  --leading-subheading: 1;
-  --tracking-subheading: 0px;
-  --text-heading-sm: 24px;
-  --leading-heading-sm: 1.09;
-  --tracking-heading-sm: 0px;
-  --text-body: 29px;
-  --leading-body: 1.26;
-  --tracking-body: 0px;
-  --text-heading: 41px;
-  --leading-heading: 0.9;
-  --tracking-heading: 0px;
-  --text-display: 51px;
-  --leading-display: 0.9;
-  --tracking-display: 0px;
-
-  /* Typography — Weights */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-
-  /* Spacing */
-  --spacing-6: 6px;
-  --spacing-8: 8px;
-  --spacing-9: 9px;
-  --spacing-10: 10px;
-  --spacing-12: 12px;
-  --spacing-14: 14px;
-  --spacing-18: 18px;
-  --spacing-24: 24px;
-  --spacing-31: 31px;
-  --spacing-41: 41px;
-  --spacing-45: 45px;
-  --spacing-68: 68px;
-  --spacing-204: 204px;
+  /* Shape */
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-input: 12px;
+  --radius-pill: 999px;
+  --shadow-hover: 0 8px 24px rgba(26, 28, 32, 0.08);
 
   /* Layout */
-  --card-padding: 24px;
-  --element-gap: 18px;
+  --container: 1152px;
 
-  /* Border Radius */
-  --radius-xl: 12px;
-  --radius-2xl: 22.5px;
-  --radius-3xl: 36px;
-  --radius-full: 9999px;
-
-  /* Named Radii */
-  --radius-cards: 12px;
-  --radius-inputs: 0px;
-  --radius-full-round: 9999px;
-  --radius-buttons-pill: 36px;
-  --radius-buttons-outlined: 22.5px;
-
-  /* Surfaces */
-  --surface-walnut-shadow: #100904;
-  --surface-bark-brown: #382416;
-  --surface-cork-border: #40372;
-  --surface-warm-cream: #ffedd7;
-}
-```
-
-### Tailwind v4
-
-```css
-@theme {
-  /* Colors */
-  --color-warm-cream: #ffedd7;
-  --color-walnut-shadow: #100904;
-  --color-bark-brown: #382416;
-  --color-cork-border: #40372e;
-  --color-driftwood: #6c5f51;
-  --color-ember-accent: #dc5000;
-  --color-pure-black: #000000;
-
-  /* Typography */
-  --font-halyard-display-variable: 'halyard-display-variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-arial: 'Arial', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
-  /* Typography — Scale */
-  --text-subheading: 18px;
-  --leading-subheading: 1;
-  --tracking-subheading: 0px;
-  --text-heading-sm: 24px;
-  --leading-heading-sm: 1.09;
-  --tracking-heading-sm: 0px;
-  --text-body: 29px;
-  --leading-body: 1.26;
-  --tracking-body: 0px;
-  --text-heading: 41px;
-  --leading-heading: 0.9;
-  --tracking-heading: 0px;
-  --text-display: 51px;
-  --leading-display: 0.9;
-  --tracking-display: 0px;
-
-  /* Spacing */
-  --spacing-6: 6px;
-  --spacing-8: 8px;
-  --spacing-9: 9px;
-  --spacing-10: 10px;
-  --spacing-12: 12px;
-  --spacing-14: 14px;
-  --spacing-18: 18px;
-  --spacing-24: 24px;
-  --spacing-31: 31px;
-  --spacing-41: 41px;
-  --spacing-45: 45px;
-  --spacing-68: 68px;
-  --spacing-204: 204px;
-
-  /* Border Radius */
-  --radius-xl: 12px;
-  --radius-2xl: 22.5px;
-  --radius-3xl: 36px;
-  --radius-full: 9999px;
+  /* Motion */
+  --dur-fast: 200ms;
+  --dur: 250ms;
+  --dur-reveal: 600ms;
+  --dur-count: 1200ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 ```
