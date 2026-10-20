@@ -1,0 +1,7 @@
+# 줄바꿈을 LF로 통일 (Windows/Mac 섞여도 충돌·경고 없게)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
