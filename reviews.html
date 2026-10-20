@@ -27,7 +27,414 @@
          후기 남기기 안내 -->
     <!-- 후기 문장은 data/reviews_30.csv에서 골라 쓰기 (추가 예정). 평균 평점은 4.5 기준 -->
 
-    <p class="placeholder">여기에 내용 작성</p>
+    <p class="lead">클래스로에서 원데이 클래스를 들은 수강생들이 직접 남긴 후기예요.</p>
+
+    <p>바로가기: <a href="#rating">평균 평점</a> · <a href="#summary">한눈에 보기</a> · <a href="#class-reviews">클래스별 후기</a> · <a href="#write">후기 남기기</a> · <a href="#faq">자주 묻는 질문</a></p>
+
+    <section class="section">
+      <h2>“강사님이 하나하나 봐주셔서 좋았어요”</h2>
+      <p>★★★★★ 5점 · 도자기 수강생</p>
+    </section>
+
+    <section class="section" id="rating">
+      <h2>★ 4.5 / 5</h2>
+      <p>수강생 평균 평점 (이 페이지의 후기 36개 기준)</p>
+      <table class="info-table">
+        <tr>
+          <th scope="row">5점</th>
+          <td><meter min="0" max="36" value="18"></meter> 18개 (50%)</td>
+        </tr>
+        <tr>
+          <th scope="row">4점</th>
+          <td><meter min="0" max="36" value="18"></meter> 18개 (50%)</td>
+        </tr>
+        <tr>
+          <th scope="row">3점</th>
+          <td><meter min="0" max="36" value="0"></meter> 0개 (0%)</td>
+        </tr>
+        <tr>
+          <th scope="row">2점</th>
+          <td><meter min="0" max="36" value="0"></meter> 0개 (0%)</td>
+        </tr>
+        <tr>
+          <th scope="row">1점</th>
+          <td><meter min="0" max="36" value="0"></meter> 0개 (0%)</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section" id="summary">
+      <h2>한눈에 보기</h2>
+      <ul class="cards">
+        <li class="card">
+          <h3>좋았던 점</h3>
+          <p>강사님이 꼼꼼하고 설명이 쉬워요 (6개)</p>
+          <p>공방이 예쁘고 넓어요 (5개)</p>
+          <p>결과물과 선물 반응이 좋아요 (4개)</p>
+          <p>가격 대비 만족스러워요 (4개)</p>
+          <p>예약과 오가는 길이 편해요 (4개)</p>
+          <p>데이트·재방문으로 좋아요 (3개)</p>
+        </li>
+        <li class="card">
+          <h3>아쉬웠던 점</h3>
+          <p>공방을 찾아가기 어려웠어요 (4개)</p>
+          <p>수업 시간이 짧게 느껴졌어요 (3개)</p>
+          <p>가격이 조금 부담돼요 (3개)</p>
+        </li>
+      </ul>
+      <table class="info-table">
+        <tr>
+          <th scope="row">도자기</th>
+          <td>★4.7 · 후기 6개 · 처음이어도 쉬워요</td>
+        </tr>
+        <tr>
+          <th scope="row">베이킹</th>
+          <td>★4.5 · 후기 6개 · 넓은 작업실, 결과물 만족</td>
+        </tr>
+        <tr>
+          <th scope="row">가죽공예</th>
+          <td>★4.5 · 후기 6개 · 선물용 소품 만들기 좋아요</td>
+        </tr>
+        <tr>
+          <th scope="row">플라워</th>
+          <td>★4.5 · 후기 6개 · 예쁜 공방 분위기</td>
+        </tr>
+        <tr>
+          <th scope="row">드로잉</th>
+          <td>★4.3 · 후기 6개 · 데이트 코스로 추천</td>
+        </tr>
+        <tr>
+          <th scope="row">향수</th>
+          <td>★4.5 · 후기 6개 · 사진 찍기 좋은 공간</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section" id="class-reviews">
+      <h2>클래스별 후기</h2>
+      <p>보고 싶은 클래스를 누르면 그 클래스의 후기만 펼쳐져요.</p>
+      <div id="rating-filter" hidden>
+        <button class="btn" type="button" data-rating="all" data-label="전체" aria-pressed="true">✓ 전체</button>
+        <button class="btn" type="button" data-rating="5" data-label="5점만" aria-pressed="false">5점만</button>
+        <button class="btn" type="button" data-rating="4" data-label="4점만" aria-pressed="false">4점만</button>
+      </div>
+      <p id="filter-status" role="status"></p>
+      <details name="class-reviews" open>
+        <summary>도자기 후기 <span data-count>6</span>개 · 평균 ★4.7 · 처음이어도 쉬워요</summary>
+        <ul class="cards">
+          <li class="card" data-rating="4">
+            <h3>“공방은 예뻤지만 찾아가기 힘들었어요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.10.16</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“선물용으로 만들었는데 반응 좋았어요 다음엔 다른 클래스도 들어볼게요”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.10.07</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“선생님 설명이 쉬워서 처음인데도 잘 만들었어요!”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.10.07</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“강사님이 하나하나 봐주셔서 좋았어요”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.26</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“이 가격에 재료까지 다 주다니 가성비 좋아요 추천합니다”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.20</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“역에서 가까워서 퇴근하고 가기 좋아요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.07</p>
+          </li>
+        </ul>
+        <p><a class="btn" href="classes.html">도자기 클래스 예약하기</a></p>
+      </details>
+      <details name="class-reviews">
+        <summary>베이킹 후기 <span data-count>6</span>개 · 평균 ★4.5 · 넓은 작업실, 결과물 만족</summary>
+        <ul class="cards">
+          <li class="card" data-rating="5">
+            <h3>“작업실이 깔끔하고 넓어요”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.10.18</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“선생님 친절했는데 시간이 너무 짧았어요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.10.18</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“쿠폰 써서 저렴하게 들었어요 추천합니다”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.10.13</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“선생님 설명이 쉬워서 처음인데도 잘 만들었어요”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.10.02</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“결과물 너무 마음에 들어요!”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.10.02</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“앱으로 예약하니까 간단해요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.21</p>
+          </li>
+        </ul>
+        <p><a class="btn" href="classes.html">베이킹 클래스 예약하기</a></p>
+      </details>
+      <details name="class-reviews">
+        <summary>가죽공예 후기 <span data-count>6</span>개 · 평균 ★4.5 · 선물용 소품 만들기 좋아요</summary>
+        <ul class="cards">
+          <li class="card" data-rating="4">
+            <h3>“강사님은 너무 좋았는데 가격이 좀 비싸요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.10.12</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“작업실이 깔끔하고 넓어요 추천합니다”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.18</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“선생님 설명이 쉬워서 처음인데도 잘 만들었어요!”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.14</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“또 들으러 올게요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.10</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“이 가격에 재료까지 다 주다니 가성비 좋아요”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.05</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“선물용으로 만들었는데 반응 좋았어요”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.04</p>
+          </li>
+        </ul>
+        <p><a class="btn" href="classes.html">가죽공예 클래스 예약하기</a></p>
+      </details>
+      <details name="class-reviews">
+        <summary>플라워 후기 <span data-count>6</span>개 · 평균 ★4.5 · 예쁜 공방 분위기</summary>
+        <ul class="cards">
+          <li class="card" data-rating="4">
+            <h3>“역에서 가까워서 퇴근하고 가기 좋아요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.10.16</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“공방 분위기가 너무 예뻐요!”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.10.03</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“쿠폰 써서 저렴하게 들었어요”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.10.03</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“공방은 예뻤지만 찾아가기 힘들었어요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.25</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“선생님 친절했는데 시간이 너무 짧았어요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.06</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“결과물 너무 마음에 들어요!”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.01</p>
+          </li>
+        </ul>
+        <p><a class="btn" href="classes.html">플라워 클래스 예약하기</a></p>
+      </details>
+      <details name="class-reviews">
+        <summary>드로잉 후기 <span data-count>6</span>개 · 평균 ★4.3 · 데이트 코스로 추천</summary>
+        <ul class="cards">
+          <li class="card" data-rating="4">
+            <h3>“공방은 예뻤지만 찾아가기 힘들었어요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.10.12</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“선생님 텐션 최고!”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.10.06</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“작업실이 깔끔하고 넓어요 ㅎㅎ”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.18</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“강사님은 너무 좋았는데 가격이 좀 비싸요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.13</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“선생님 친절했는데 시간이 너무 짧았어요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.03</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“친구랑 데이트 코스로 딱이에요!”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.03</p>
+          </li>
+        </ul>
+        <p><a class="btn" href="classes.html">드로잉 클래스 예약하기</a></p>
+      </details>
+      <details name="class-reviews">
+        <summary>향수 후기 <span data-count>6</span>개 · 평균 ★4.5 · 사진 찍기 좋은 공간</summary>
+        <ul class="cards">
+          <li class="card" data-rating="5">
+            <h3>“친구랑 데이트 코스로 딱이에요!”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.26</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“공방은 예뻤지만 찾아가기 힘들었어요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.23</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“강사님은 너무 좋았는데 가격이 좀 비싸요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.22</p>
+          </li>
+          <li class="card" data-rating="4">
+            <h3>“앱으로 예약하니까 간단해요”</h3>
+            <p>★★★★☆ 4점</p>
+            <p>2026.09.13</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“선생님 설명이 쉬워서 처음인데도 잘 만들었어요!”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.06</p>
+          </li>
+          <li class="card" data-rating="5">
+            <h3>“사진 찍기 좋은 공간이에요”</h3>
+            <p>★★★★★ 5점</p>
+            <p>2026.09.04</p>
+          </li>
+        </ul>
+        <p><a class="btn" href="classes.html">향수 클래스 예약하기</a></p>
+      </details>
+    </section>
+
+    <section class="section" id="write">
+      <h2>후기 남기기</h2>
+      <p>수강을 마친 클래스의 후기를 남겨 주세요. 클래스로 앱의 예약 내역에서도 남길 수 있어요.</p>
+      <form id="review-form" action="#write">
+        <div class="form-row">
+          <label for="review-class">수강한 클래스</label>
+          <select id="review-class" name="class" required>
+            <option value="">클래스를 골라 주세요</option>
+            <option>도자기</option>
+            <option>베이킹</option>
+            <option>가죽공예</option>
+            <option>플라워</option>
+            <option>드로잉</option>
+            <option>향수</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="review-rating">별점</label>
+          <select id="review-rating" name="rating" required>
+            <option value="">별점을 골라 주세요</option>
+            <option value="5">★★★★★ 5점</option>
+            <option value="4">★★★★☆ 4점</option>
+            <option value="3">★★★☆☆ 3점</option>
+            <option value="2">★★☆☆☆ 2점</option>
+            <option value="1">★☆☆☆☆ 1점</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="review-text">후기 내용</label>
+          <textarea id="review-text" name="text" rows="4" required placeholder="좋았던 점이나 아쉬웠던 점을 적어 주세요"></textarea>
+        </div>
+        <button class="btn" type="submit">후기 등록</button>
+      </form>
+      <p id="review-done" role="status" hidden>후기가 등록됐어요. 소중한 후기 감사합니다!</p>
+      <p>※ 수업용 예시 양식이라 실제로 저장되지는 않아요.</p>
+      <p>아직 클래스를 듣지 않았다면 먼저 둘러보세요.</p>
+      <a class="btn" href="classes.html">클래스 둘러보기</a>
+    </section>
+
+    <section class="section" id="faq">
+      <h2>자주 묻는 질문</h2>
+      <details name="faq">
+        <summary>후기는 언제 남길 수 있나요?</summary>
+        <p>수강을 마친 뒤 이 페이지의 양식이나 클래스로 앱의 예약 내역에서 남길 수 있어요.</p>
+      </details>
+      <details name="faq">
+        <summary>공방은 어떻게 찾아가나요?</summary>
+        <p>후기에서 가장 많이 나온 아쉬운 점이에요. 공방 위치는 <a href="location.html">오시는 길</a> 페이지에서 확인해 주세요.</p>
+      </details>
+      <details name="faq">
+        <summary>재료비는 수강료에 포함되나요?</summary>
+        <p>클래스마다 달라요. 예약 전에 <a href="classes.html">클래스 안내</a>에서 꼭 확인해 주세요.</p>
+      </details>
+      <details name="faq">
+        <summary>후기 관련 문의는 어디로 하나요?</summary>
+        <p><a href="mailto:hello@classro.example">hello@classro.example</a>로 보내 주세요. 평일 10:00 ~ 18:00에 답변해 드려요.</p>
+      </details>
+    </section>
+
+    <script>
+      // 별점 필터: 고른 점수의 후기만 남기고 클래스별 개수를 다시 센다
+      const filter = document.getElementById('rating-filter');
+      const filterStatus = document.getElementById('filter-status');
+      const groups = document.querySelectorAll('#class-reviews details');
+      filter.hidden = false;
+      filter.addEventListener('click', (event) => {
+        const picked = event.target.closest('button[data-rating]');
+        if (!picked) return;
+        const rating = picked.dataset.rating;
+        filter.querySelectorAll('button').forEach((button) => {
+          const on = button === picked;
+          button.setAttribute('aria-pressed', on);
+          button.textContent = (on ? '✓ ' : '') + button.dataset.label;
+        });
+        let total = 0;
+        groups.forEach((group) => {
+          let shown = 0;
+          group.querySelectorAll('li[data-rating]').forEach((item) => {
+            item.hidden = rating !== 'all' && item.dataset.rating !== rating;
+            if (!item.hidden) shown++;
+          });
+          group.querySelector('[data-count]').textContent = shown;
+          total += shown;
+        });
+        filterStatus.textContent = rating === 'all'
+          ? ''
+          : `${rating}점 후기 ${total}개만 보고 있어요.`;
+      });
+
+      // 후기 등록: 페이지를 새로 고치지 않고 완료 안내를 보여준다
+      const reviewForm = document.getElementById('review-form');
+      const reviewDone = document.getElementById('review-done');
+      reviewForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        reviewForm.reset();
+        reviewDone.hidden = false;
+      });
+    </script>
 
     <!-- ✏️ ===== 여기까지 담당자 작성 영역 ===== -->
   </main>

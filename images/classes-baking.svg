@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="baking oil pastel sample illustration">
+  <defs>
+    <!-- 파스텔 면: 가장자리 일그러짐 + 종이 결에 걸린 얼룩 -->
+    <filter id="wax" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="8" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="7" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.6 0 0 0 -0.45" result="mask"/>
+      <feComposite in="rough" in2="mask" operator="in"/>
+    </filter>
+    <!-- 파스텔 선: 조금 더 거칠게 -->
+    <filter id="waxline" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="11" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3.4 0 0 0 -0.9" result="mask"/>
+      <feComposite in="rough" in2="mask" operator="in"/>
+    </filter>
+    <!-- 종이 질감 -->
+    <filter id="paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="2"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.55  0 0 0 0 0.45  0 0 0 0 0.4  0.9 0 0 0 -0.32"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="#f8f1e7"/>
+  <rect width="800" height="600" filter="url(#paper)"/>
+  <clipPath id="c1"><path d="M180 300C180 150 320 105 425 118C565 132 645 205 632 325C620 455 500 505 375 492C245 480 180 420 180 300Z"/></clipPath>
+  <path d="M180 300C180 150 320 105 425 118C565 132 645 205 632 325C620 455 500 505 375 492C245 480 180 420 180 300Z" fill="#f6c3cf" filter="url(#wax)"/>
+  <g clip-path="url(#c1)"><path d="M-245 -321L1000 -302L-199 -289L1003 -275L-209 -253L1028 -238L-198 -224L1012 -205L-220 -190L1042 -177L-194 -158L1015 -142L-240 -130L1004 -114L-240 -96L1012 -80L-216 -61L1017 -49L-218 -30L1012 -15L-228 2L1017 19L-226 33L1029 46L-233 64L1021 82L-210 96L1044 111L-206 128L1017 145L-194 162L1040 178L-213 194L1019 207L-202 226L1024 240L-213 255L1034 272L-228 289L1043 306L-230 317L1039 339L-244 352L993 369L-209 386L1035 398L-234 418L1047 429L-196 450L993 463L-235 477L997 493L-248 515L1012 526L-194 545L1021 557L-215 578L1005 595L-250 611L1028 625L-233 640L1009 656L-214 669L1006 687L-213 702L1048 718L-209 738L991 754L-193 768L1037 784L-230 802L1010 815L-192 833L1032 851L-210 863L998 878L-223 894L1045 913" fill="none" stroke="#eaa6b6" stroke-width="3.2" stroke-linecap="round" opacity=".6" filter="url(#waxline)" transform="rotate(-38 400 300)"/></g>
+  <clipPath id="c2"><path d="M150 440 a250 50 0 1 0 500 0 a250 50 0 1 0 -500 0Z"/></clipPath>
+  <path d="M150 440 a250 50 0 1 0 500 0 a250 50 0 1 0 -500 0Z" fill="#fbf5ec" filter="url(#wax)"/>
+  <g clip-path="url(#c2)"><path d="M-190 -322L1017 -308L-215 -293L1038 -280L-235 -268L1022 -258L-248 -243L997 -228L-236 -218L1001 -205L-237 -190L1018 -178L-211 -166L1044 -148L-206 -138L1021 -125L-247 -112L1022 -101L-244 -84L1012 -73L-195 -59L1007 -44L-228 -37L1031 -23L-232 -6L1030 2L-223 17L1019 29L-215 41L1007 56L-194 67L1035 81L-216 95L1018 111L-226 120L997 132L-199 149L1048 162L-249 175L1037 188L-220 199L1017 215L-234 226L1019 242L-202 255L1040 264L-236 278L1006 291L-209 307L1025 319L-244 329L1050 341L-225 353L995 371L-191 383L998 394L-236 409L1031 421L-219 432L1022 450L-205 458L1021 474L-235 488L1018 500L-226 515L1037 525L-241 538L992 552L-197 562L1021 577L-226 591L1046 604L-222 619L1010 630L-210 644L1041 653L-213 667L1030 684L-212 691L1018 708L-197 721L1039 730L-193 747L1026 761L-197 770L1039 787L-238 799L1025 809L-202 822L1027 837L-235 850L1018 861L-192 873L990 889L-200 903L1035 915" fill="none" stroke="#eadfcf" stroke-width="3.2" stroke-linecap="round" opacity=".6" filter="url(#waxline)" transform="rotate(-38 400 300)"/></g>
+  <path d="M150 440 a250 50 0 1 0 500 0 a250 50 0 1 0 -500 0Z" fill="none" stroke="#6b5566" stroke-width="4.5" stroke-linejoin="round" opacity=".8" filter="url(#waxline)"/>
+  <clipPath id="c3"><path d="M230 430L250 360L390 360L410 430Z"/></clipPath>
+  <path d="M230 430L250 360L390 360L410 430Z" fill="#f2c98a" filter="url(#wax)"/>
+  <g clip-path="url(#c3)"><path d="M-222 -318L1018 -304L-213 -295L1036 -278L-190 -269L1028 -253L-207 -245L1020 -226L-209 -218L1007 -203L-250 -193L1041 -177L-238 -163L1020 -153L-209 -137L1008 -126L-231 -113L1047 -100L-211 -86L1045 -73L-237 -59L1041 -49L-220 -36L992 -18L-216 -8L994 3L-209 20L1041 29L-229 43L1012 57L-198 70L998 84L-191 94L1006 107L-197 122L1035 137L-239 146L998 160L-217 173L1039 188L-233 201L1026 213L-206 225L1014 240L-208 253L1048 266L-218 279L994 290L-221 303L1044 317L-245 333L1009 342L-192 354L1000 366L-197 383L1029 392L-231 410L1026 421L-222 436L1012 445L-220 463L1037 472L-242 485L995 497L-208 513L993 528L-211 539L1042 549L-246 564L1006 576L-215 588L1029 604L-193 614L993 631L-221 644L1023 656L-245 668L1030 681L-226 695L1000 706L-223 722L1017 734L-243 749L1020 757L-226 772L1032 784L-210 796L991 811L-191 823L1039 837L-199 850L994 861L-248 877L1023 886L-217 899L1039 914" fill="none" stroke="#dcaa62" stroke-width="3.2" stroke-linecap="round" opacity=".6" filter="url(#waxline)" transform="rotate(-22 400 300)"/></g>
+  <path d="M230 430L250 360L390 360L410 430Z" fill="none" stroke="#6b5566" stroke-width="4.5" stroke-linejoin="round" opacity=".8" filter="url(#waxline)"/>
+  <clipPath id="c4"><path d="M410 430L430 360L570 360L590 430Z"/></clipPath>
+  <path d="M410 430L430 360L570 360L590 430Z" fill="#f2c98a" filter="url(#wax)"/>
+  <g clip-path="url(#c4)"><path d="M-197 -322L1020 -309L-243 -296L1003 -284L-237 -269L1027 -253L-196 -241L1020 -226L-240 -218L1039 -202L-237 -191L1008 -177L-224 -165L1038 -149L-216 -138L1007 -123L-191 -114L1032 -98L-211 -89L1023 -75L-238 -60L1029 -46L-205 -33L1019 -24L-204 -6L1040 6L-248 16L997 32L-217 42L1047 60L-196 70L1008 81L-201 97L1007 111L-216 121L1015 136L-223 149L997 162L-234 176L1003 186L-218 199L1022 216L-238 228L1032 241L-223 252L1011 265L-235 276L1019 289L-222 304L1009 315L-214 332L1003 344L-210 358L1031 368L-238 384L1008 392L-198 406L1009 420L-235 435L1011 447L-225 462L991 473L-242 484L1026 498L-246 513L1045 526L-220 540L1045 549L-232 567L1046 575L-208 592L1025 604L-219 614L1003 626L-210 640L1027 654L-224 671L1014 681L-227 692L1003 707L-201 718L1047 734L-247 747L1014 759L-244 772L1021 787L-215 799L1034 809L-249 824L998 835L-231 850L1027 864L-193 874L1023 887L-210 902L998 914" fill="none" stroke="#dcaa62" stroke-width="3.2" stroke-linecap="round" opacity=".6" filter="url(#waxline)" transform="rotate(35 400 300)"/></g>
+  <path d="M410 430L430 360L570 360L590 430Z" fill="none" stroke="#6b5566" stroke-width="4.5" stroke-linejoin="round" opacity=".8" filter="url(#waxline)"/>
+  <clipPath id="c5"><path d="M300 340C230 340 190 300 190 260C190 200 280 150 400 150C520 150 610 200 610 260C610 300 570 340 500 340Z"/></clipPath>
+  <path d="M300 340C230 340 190 300 190 260C190 200 280 150 400 150C520 150 610 200 610 260C610 300 570 340 500 340Z" fill="#f7d898" filter="url(#wax)"/>
+  <g clip-path="url(#c5)"><path d="M-222 -317L1011 -308L-195 -293L996 -279L-228 -265L1028 -253L-196 -242L1048 -232L-230 -214L990 -202L-190 -189L1042 -180L-218 -163L1016 -151L-203 -140L993 -124L-192 -110L1030 -100L-196 -89L1005 -71L-196 -61L1045 -49L-214 -37L1004 -23L-250 -9L1020 4L-211 15L1021 31L-226 46L998 57L-222 69L1048 83L-219 96L1016 112L-202 123L1000 136L-242 147L991 162L-191 175L1024 186L-223 200L1015 212L-237 228L1047 241L-213 249L1008 267L-192 278L1024 292L-235 305L1012 319L-222 331L1023 343L-222 359L1035 369L-220 384L1035 396L-192 406L1026 422L-223 437L1048 446L-213 462L1032 472L-202 485L999 500L-211 511L1020 528L-202 537L1045 551L-226 565L1037 579L-210 591L1014 600L-223 614L1047 628L-214 643L1001 657L-230 665L1026 680L-195 694L996 704L-248 720L1033 730L-230 746L1044 762L-197 773L1025 783L-213 796L1008 813L-216 825L1018 836L-220 850L1005 865L-191 874L1005 891L-207 900L1025 913" fill="none" stroke="#e8bc6c" stroke-width="3.2" stroke-linecap="round" opacity=".6" filter="url(#waxline)" transform="rotate(-22 400 300)"/></g>
+  <path d="M300 340C230 340 190 300 190 260C190 200 280 150 400 150C520 150 610 200 610 260C610 300 570 340 500 340Z" fill="none" stroke="#6b5566" stroke-width="4.5" stroke-linejoin="round" opacity=".8" filter="url(#waxline)"/>
+  <path d="M400 162v168M330 176l30 154M470 176l-30 154M262 210l58 124M538 210l-58 124" fill="none" stroke="#c99459" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#waxline)"/>
+  <text x="32" y="568" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500" letter-spacing="1" fill="#8a7a86">SAMPLE · BAKING</text>
+</svg>

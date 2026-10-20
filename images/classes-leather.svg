@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="leather oil pastel sample illustration">
+  <defs>
+    <!-- 파스텔 면: 가장자리 일그러짐 + 종이 결에 걸린 얼룩 -->
+    <filter id="wax" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="8" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="7" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.6 0 0 0 -0.45" result="mask"/>
+      <feComposite in="rough" in2="mask" operator="in"/>
+    </filter>
+    <!-- 파스텔 선: 조금 더 거칠게 -->
+    <filter id="waxline" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="11" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3.4 0 0 0 -0.9" result="mask"/>
+      <feComposite in="rough" in2="mask" operator="in"/>
+    </filter>
+    <!-- 종이 질감 -->
+    <filter id="paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="2"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.55  0 0 0 0 0.45  0 0 0 0 0.4  0.9 0 0 0 -0.32"/>
+    </filter>
+  </defs>
+  <rect width="800" height="600" fill="#f8f1e7"/>
+  <rect width="800" height="600" filter="url(#paper)"/>
+  <clipPath id="c1"><path d="M180 300C180 150 320 105 425 118C565 132 645 205 632 325C620 455 500 505 375 492C245 480 180 420 180 300Z"/></clipPath>
+  <path d="M180 300C180 150 320 105 425 118C565 132 645 205 632 325C620 455 500 505 375 492C245 480 180 420 180 300Z" fill="#bfe3cf" filter="url(#wax)"/>
+  <g clip-path="url(#c1)"><path d="M-214 -322L1045 -304L-215 -287L1045 -272L-217 -258L1033 -240L-217 -225L1042 -210L-241 -189L1013 -179L-203 -162L1047 -147L-203 -126L1006 -111L-195 -97L1037 -80L-206 -64L1048 -50L-228 -35L1020 -17L-210 2L1041 16L-200 32L1022 47L-236 63L1045 77L-233 97L1032 113L-230 128L1024 142L-211 161L1049 175L-243 192L1028 208L-229 221L1044 237L-224 255L997 273L-204 287L1025 304L-195 319L1004 333L-250 350L1022 371L-192 383L1006 401L-191 415L1012 430L-198 447L1042 463L-198 481L996 499L-201 511L1028 529L-194 544L1005 559L-230 578L1049 591L-227 609L998 625L-230 639L1045 657L-233 672L1025 691L-249 703L1028 719L-214 734L1001 754L-199 767L1037 782L-201 803L1031 814L-220 833L1006 847L-209 865L996 881L-193 897L1003 914" fill="none" stroke="#9fd0b5" stroke-width="3.2" stroke-linecap="round" opacity=".6" filter="url(#waxline)" transform="rotate(-30 400 300)"/></g>
+  <clipPath id="c2"><path d="M244 180H556Q580 180 580 204V406Q580 430 556 430H244Q220 430 220 406V204Q220 180 244 180Z"/></clipPath>
+  <path d="M244 180H556Q580 180 580 204V406Q580 430 556 430H244Q220 430 220 406V204Q220 180 244 180Z" fill="#dca97f" filter="url(#wax)"/>
+  <g clip-path="url(#c2)"><path d="M-245 -319L1003 -307L-234 -292L992 -278L-231 -266L1024 -253L-230 -240L995 -228L-215 -216L1021 -201L-222 -189L1007 -177L-248 -165L1002 -151L-200 -137L1021 -125L-191 -111L992 -99L-205 -85L1048 -73L-197 -58L1041 -44L-243 -36L992 -19L-219 -10L1043 5L-247 18L997 31L-236 41L1022 54L-195 68L998 86L-218 98L994 107L-243 124L997 133L-234 150L998 164L-221 174L1014 189L-235 201L1021 210L-231 228L1041 241L-247 249L1019 262L-207 278L1019 289L-246 303L1013 316L-234 333L1016 341L-250 357L1038 369L-247 382L1029 395L-212 405L1043 418L-212 436L1009 450L-225 457L1003 472L-215 488L1003 497L-248 511L1048 525L-198 536L1031 554L-206 566L1022 576L-243 589L1022 605L-207 616L1004 628L-218 642L1030 654L-201 667L1041 678L-243 694L1032 706L-232 718L1050 733L-218 744L1023 757L-217 772L1042 783L-245 801L1029 811L-208 827L1005 838L-194 850L1048 862L-236 879L1041 892L-225 902L1025 918" fill="none" stroke="#c88f62" stroke-width="3.2" stroke-linecap="round" opacity=".6" filter="url(#waxline)" transform="rotate(-30 400 300)"/></g>
+  <path d="M244 180H556Q580 180 580 204V406Q580 430 556 430H244Q220 430 220 406V204Q220 180 244 180Z" fill="none" stroke="#6b5566" stroke-width="4.5" stroke-linejoin="round" opacity=".8" filter="url(#waxline)"/>
+  <clipPath id="c3"><path d="M220 270H580V406Q580 430 556 430H244Q220 430 220 406Z"/></clipPath>
+  <path d="M220 270H580V406Q580 430 556 430H244Q220 430 220 406Z" fill="#d39a6e" filter="url(#wax)"/>
+  <g clip-path="url(#c3)"><path d="M-241 -321L1043 -309L-220 -294L1032 -278L-215 -266L998 -253L-241 -242L1046 -227L-218 -214L1030 -201L-214 -189L1049 -175L-232 -165L1038 -153L-216 -140L1019 -123L-225 -111L1032 -101L-215 -84L1029 -76L-190 -63L1047 -45L-197 -37L1045 -19L-211 -6L994 3L-235 20L1037 29L-213 45L992 60L-240 67L1001 81L-202 94L1006 111L-248 122L1034 134L-248 147L1013 158L-211 175L1019 185L-231 202L995 213L-224 226L1005 239L-208 253L1012 265L-210 279L1047 293L-244 307L1010 317L-218 331L1021 340L-232 357L1035 370L-206 380L1012 398L-223 406L1024 424L-211 435L1015 446L-239 460L1037 474L-244 484L1023 499L-226 510L1006 522L-242 538L1006 552L-219 566L1047 577L-201 587L1020 606L-241 617L1031 629L-195 640L1032 655L-210 667L1049 679L-214 696L1038 707L-240 718L1042 732L-232 748L1017 758L-201 771L1044 784L-220 798L1032 813L-210 821L1001 838L-244 852L1004 861L-212 874L1037 887L-201 905L1047 913" fill="none" stroke="#bf8358" stroke-width="3.2" stroke-linecap="round" opacity=".6" filter="url(#waxline)" transform="rotate(28 400 300)"/></g>
+  <path d="M220 270H580V406Q580 430 556 430H244Q220 430 220 406Z" fill="none" stroke="#6b5566" stroke-width="4.5" stroke-linejoin="round" opacity=".8" filter="url(#waxline)"/>
+  <path d="M258 204H542Q556 204 556 218V392Q556 406 542 406H258Q244 406 244 392V218Q244 204 258 204Z" fill="none" stroke="#fbefdc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#waxline)" stroke-dasharray="12 10"/>
+  <path d="M600 160c40 10 60 60 20 90s-60 80-10 110" fill="none" stroke="#f4a7b9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#waxline)"/>
+  <path d="M600 160l-90 250" fill="none" stroke="#8f8aa8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#waxline)"/>
+  <text x="32" y="568" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500" letter-spacing="1" fill="#8a7a86">SAMPLE · LEATHER</text>
+</svg>
