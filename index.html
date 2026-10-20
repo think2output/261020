@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>클래스로</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ⚠️ 공통 메뉴: 수정 금지 (바꾸고 싶으면 조장에게 요청) -->
+  <header class="site-header">
+    <a class="logo" href="index.html">클래스로</a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="about.html">회사소개</a>
+      <a href="classes.html">클래스</a>
+      <a href="location.html">오시는 길</a>
+      <a href="reviews.html">후기</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1>동네 공방의 원데이 클래스, 앱에서 바로 예약</h1>
+
+    <!-- ✏️ ===== 여기부터 담당자 작성 영역 ===== -->
+    <!-- 담당: 우현 / 브랜치: feature/home -->
+    <!-- 들어갈 내용: 첫 화면 소개 문구(.lead), 숫자 하이라이트(공방 420곳·월 예약 7천 건 등),
+         나머지 4개 페이지로 가는 안내 카드(.cards), 앱 예약 유도 버튼(.btn) -->
+
+    <!-- 1. 히어로: 페이지에서 유일하게 강한 요소는 일러스트 + 버튼 -->
+    <p class="lead">동네 공방 420곳의 도자기, 베이킹, 향수 클래스. 날짜와 인원만 고르면 이번 주말 예약이 끝나요.</p>
+    <p><a class="btn" href="classes.html">이번 주말 클래스 찾기</a></p>
+    <p><img src="images/home-hero.svg" width="760" height="440"
+         alt="작업대 위에 도자기 컵, 빵, 가죽 카드지갑, 꽃병, 향수병, 연필이 놓여 있는 그림"></p>
+
+    <!-- 2. 숫자로 보는 클래스로 (값은 RULES.md 공통 정보 기준, 자세한 내용은 회사소개) -->
+    <section class="section" aria-labelledby="home-numbers">
+      <h2 id="home-numbers">숫자로 보는 클래스로</h2>
+      <!-- 숫자 바꿀 때는 images/home-numbers.svg와 아래 alt를 같이 고칠 것 -->
+      <p><img src="images/home-numbers.svg" width="600" height="330"
+           alt="제휴 공방 약 420곳(서울 280곳, 경기 110곳, 그 밖의 지역 30곳), 한 달 예약 약 7천 건(2026년 9월 기준), 클래스 종류 6가지"></p>
+      <p><a href="about.html">클래스로가 어떤 회사인지 더 알아보기</a></p>
+    </section>
+
+    <!-- 3. 클래스 6종 (이름은 classes.html과 같게 유지) -->
+    <section class="section" aria-labelledby="home-classes">
+      <h2 id="home-classes">이런 클래스가 있어요</h2>
+      <ul class="cards">
+        <li class="card"><h3>도자기</h3><p>물레 앞에 앉아 내 손으로 컵 하나를 빚어요.</p></li>
+        <li class="card"><h3>베이킹</h3><p>오븐에서 막 꺼낸 빵을 들고 집에 가요.</p></li>
+        <li class="card"><h3>가죽공예</h3><p>바느질 한 땀씩 카드지갑을 완성해요.</p></li>
+        <li class="card"><h3>플라워</h3><p>제철 꽃으로 작은 꽃다발을 엮어요.</p></li>
+        <li class="card"><h3>드로잉</h3><p>처음 연필을 잡아도 한 장을 끝까지 그려요.</p></li>
+        <li class="card"><h3>향수</h3><p>좋아하는 향을 섞어 나만의 향수를 만들어요.</p></li>
+      </ul>
+      <p><a href="classes.html">클래스 자세히 보고 예약하기</a></p>
+    </section>
+
+    <!-- 4. 이용 방법 (핵심 사용자 흐름 기준) -->
+    <section class="section" aria-labelledby="home-steps">
+      <h2 id="home-steps">예약은 이렇게 해요</h2>
+      <p><img src="images/home-steps.svg" width="600" height="220"
+           alt="예약 3단계: 1단계 클래스 찾기, 2단계 날짜와 인원 고르기, 3단계 결제하면 예약 끝"></p>
+    </section>
+
+    <!-- 5. 후기: 로운님이 고른 후기 2~3개를 data/reviews_30.csv에서 가져와 여기에 추가 예정 -->
+    <section class="section" aria-labelledby="home-reviews">
+      <h2 id="home-reviews">먼저 다녀온 분들의 이야기</h2>
+      <p>클래스를 들은 수강생들이 남긴 후기를 모아 두었어요. <a href="reviews.html">후기 보러 가기</a></p>
+    </section>
+
+    <!-- 6. 마지막 행동 유도: 히어로 버튼과 같은 곳으로 -->
+    <section class="section" aria-labelledby="home-cta">
+      <h2 id="home-cta">이번 주말, 손으로 하나 만들어 볼까요?</h2>
+      <p><a class="btn" href="classes.html">클래스 둘러보기</a></p>
+    </section>
+
+    <!-- ✏️ ===== 여기까지 담당자 작성 영역 ===== -->
+  </main>
+
+  <!-- ⚠️ 공통 푸터: 수정 금지 -->
+  <footer class="site-footer">
+    <p>클래스로(Classro) · 서울특별시 성동구 연무장길 00, 클래스로빌딩 3층 · 02-000-0000</p>
+    <p>수업용 가상 회사입니다.</p>
+  </footer>
+</body>
+</html>
