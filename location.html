@@ -27,21 +27,53 @@
          주소·전화·운영시간 표(.info-table), 대중교통(지하철·버스)·주차 안내 -->
     <!-- 주소·전화·운영시간은 RULES.md '공통 정보' 표 그대로 -->
 
-    <p class="lead">성수동 연무장길, 클래스로빌딩 3층에서 기다리고 있어요.</p>
+    <p class="lead">석촌역에서 걸어서 3~4분, 백제고분로37길에서 기다리고 있어요.</p>
 
     <div class="map">
       <iframe
-        src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EC%84%B1%EB%8F%99%EA%B5%AC%20%EC%97%B0%EB%AC%B4%EC%9E%A5%EA%B8%B8&z=16&output=embed"
-        title="클래스로 위치 지도 (서울 성동구 연무장길)"
+        src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B0%B1%EC%A0%9C%EA%B3%A0%EB%B6%84%EB%A1%9C37%EA%B8%B8%2022&z=17&output=embed"
+        title="클래스로 위치 지도 (서울 송파구 백제고분로37길 22)"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen></iframe>
     </div>
 
+    <p>
+      <a class="btn" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B0%B1%EC%A0%9C%EA%B3%A0%EB%B6%84%EB%A1%9C37%EA%B8%B8%2022" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%9C%EC%9A%B8%20%EC%86%A1%ED%8C%8C%EA%B5%AC%20%EB%B0%B1%EC%A0%9C%EA%B3%A0%EB%B6%84%EB%A1%9C37%EA%B8%B8%2022" target="_blank" rel="noopener">구글 지도에서 보기</a>
+    </p>
+
+    <section class="section">
+      <h2>석촌역 6번 출구에서 오는 길</h2>
+      <p>출구로 나와 백제고분로를 따라 걷다가 백제고분로37길로 들어오세요. (약 250m, 도보 3~4분)</p>
+      <svg viewBox="0 0 640 340" width="100%" role="img" aria-label="석촌역 6번 출구에서 백제고분로37길 22까지 걷는 길 안내 그림">
+        <rect width="640" height="340" rx="12" fill="#fbfbf8" stroke="#d9dbe2"/>
+        <!-- 실제 보행 경로 (OpenStreetMap 도보 경로 기준) -->
+        <path id="walk-route" d="M580.6 60 L386.2 155.3 L371.3 132 L278.9 171.1 L233 188.9 L208.8 213.1 L60 276.2"
+              fill="none" stroke="#d9dbe2" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M580.6 60 L386.2 155.3 L371.3 132 L278.9 171.1 L233 188.9 L208.8 213.1 L60 276.2"
+              fill="none" stroke="#2f6f62" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round"/>
+        <text x="300" y="150" font-size="14" fill="#6b7280">백제고분로</text>
+        <text x="90" y="235" font-size="14" fill="#6b7280">백제고분로37길</text>
+        <!-- 출발: 석촌역 6번 출구 -->
+        <circle cx="580.6" cy="60" r="10" fill="#1f2a44"/>
+        <text x="490" y="40" font-size="15" font-weight="bold" fill="#1f2a44">석촌역 6번 출구</text>
+        <!-- 도착: 클래스로 -->
+        <circle cx="60" cy="276.2" r="12" fill="#2f6f62"/>
+        <text x="40" y="312" font-size="15" font-weight="bold" fill="#2f6f62">클래스로</text>
+        <!-- 길을 따라 움직이는 화살표 -->
+        <path d="M-12 -8 L12 0 L-12 8 Z" fill="#2f6f62">
+          <animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#walk-route"/>
+          </animateMotion>
+        </path>
+      </svg>
+    </section>
+
     <section class="section">
       <h2>기본 정보</h2>
       <table class="info-table">
-        <tr><th scope="row">주소</th><td>서울특별시 성동구 연무장길 00, 클래스로빌딩 3층</td></tr>
+        <tr><th scope="row">주소</th><td>서울특별시 송파구 백제고분로37길 22</td></tr>
         <tr><th scope="row">대표 전화</th><td>02-000-0000</td></tr>
         <tr><th scope="row">이메일</th><td>hello@classro.example</td></tr>
         <tr><th scope="row">운영 시간</th><td>평일 10:00 ~ 18:00 (주말·공휴일 휴무)</td></tr>
@@ -53,11 +85,11 @@
       <ul class="cards">
         <li class="card">
           <h3>지하철</h3>
-          <p>2호선 성수역 3번 출구에서 도보 약 7분<br>수인분당선 서울숲역 4번 출구에서 도보 약 10분</p>
+          <p>8·9호선 석촌역 6번 출구에서 도보 약 3~4분<br>9호선 석촌고분역에서 도보 약 10분</p>
         </li>
         <li class="card">
           <h3>버스</h3>
-          <p>'성수역' 또는 '성수동 카페거리' 정류장 하차 후 연무장길 방면 도보 약 5분</p>
+          <p>'석촌역' 정류장 하차 후 백제고분로37길 방면 도보 약 5분</p>
         </li>
       </ul>
     </section>
