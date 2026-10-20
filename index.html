@@ -23,56 +23,176 @@
 
     <!-- ✏️ ===== 여기부터 담당자 작성 영역 ===== -->
     <!-- 담당: 우현 / 브랜치: feature/home -->
-    <!-- 들어갈 내용: 첫 화면 소개 문구(.lead), 숫자 하이라이트(공방 420곳·월 예약 7천 건 등),
-         나머지 4개 페이지로 가는 안내 카드(.cards), 앱 예약 유도 버튼(.btn) -->
+    <!-- 디자인: design.md v3 + style.css 공통 부품만 사용. 숫자·가격은 RULES.md, classes.html과 같게 유지 -->
 
-    <!-- 1. 히어로: 페이지에서 유일하게 강한 요소는 일러스트 + 버튼 -->
-    <p class="lead">동네 공방 420곳의 도자기, 베이킹, 향수 클래스. 날짜와 인원만 고르면 이번 주말 예약이 끝나요.</p>
-    <p><a class="btn" href="classes.html">이번 주말 클래스 찾기</a></p>
-    <p><img src="images/home-hero.svg" width="760" height="440"
-         alt="작업대 위에 도자기 컵, 빵, 가죽 카드지갑, 꽃병, 향수병, 연필이 놓여 있는 그림"></p>
-
-    <!-- 2. 숫자로 보는 클래스로 (값은 RULES.md 공통 정보 기준, 자세한 내용은 회사소개) -->
-    <section class="section" aria-labelledby="home-numbers">
-      <h2 id="home-numbers">숫자로 보는 클래스로</h2>
-      <!-- 숫자 바꿀 때는 images/home-numbers.svg와 아래 alt를 같이 고칠 것 -->
-      <p><img src="images/home-numbers.svg" width="600" height="330"
-           alt="제휴 공방 약 420곳(서울 280곳, 경기 110곳, 그 밖의 지역 30곳), 한 달 예약 약 7천 건(2026년 9월 기준), 클래스 종류 6가지"></p>
-      <p><a href="about.html">클래스로가 어떤 회사인지 더 알아보기</a></p>
+    <!-- 1. 첫 화면: 한 줄 제목 → 버튼 → 큰 그림 -->
+    <section class="hero" aria-label="클래스로 소개">
+      <div>
+        <p class="display">이번 주말,<br>손으로 하나 만들어요.</p>
+        <div class="actions">
+          <a class="btn" href="classes.html">클래스 둘러보기</a>
+          <a class="btn btn--outline" href="reviews.html">수강생 후기 보기</a>
+        </div>
+      </div>
+      <p class="lead">도자기부터 향수까지, 동네 공방 420곳의 원데이 클래스를 한곳에 모았어요. 날짜와 인원만 고르면 예약이 끝나요.</p>
+      <div class="hero-media">
+        <figure class="class-photo">
+          <img src="images/classes-leather.svg" alt="가죽공예 클래스 그림" width="800" height="600">
+        </figure>
+        <figure class="class-photo">
+          <img src="images/classes-perfume.svg" alt="향수 클래스 그림" width="800" height="600">
+        </figure>
+        <figure class="class-photo">
+          <img src="images/classes-drawing.svg" alt="드로잉 클래스 그림" width="800" height="600">
+        </figure>
+      </div>
     </section>
 
-    <!-- 3. 클래스 6종 (이름은 classes.html과 같게 유지) -->
-    <section class="section" aria-labelledby="home-classes">
-      <h2 id="home-classes">이런 클래스가 있어요</h2>
-      <ul class="cards">
-        <li class="card"><h3>도자기</h3><p>물레 앞에 앉아 내 손으로 컵 하나를 빚어요.</p></li>
-        <li class="card"><h3>베이킹</h3><p>오븐에서 막 꺼낸 빵을 들고 집에 가요.</p></li>
-        <li class="card"><h3>가죽공예</h3><p>바느질 한 땀씩 카드지갑을 완성해요.</p></li>
-        <li class="card"><h3>플라워</h3><p>제철 꽃으로 작은 꽃다발을 엮어요.</p></li>
-        <li class="card"><h3>드로잉</h3><p>처음 연필을 잡아도 한 장을 끝까지 그려요.</p></li>
-        <li class="card"><h3>향수</h3><p>좋아하는 향을 섞어 나만의 향수를 만들어요.</p></li>
+    <!-- 2. 숫자로 보는 클래스로 -->
+    <section class="section" aria-labelledby="home-stats">
+      <h2 id="home-stats">숫자로 보는 클래스로</h2>
+      <ul class="stats">
+        <li class="stat">
+          <span class="stat-label">제휴 공방</span>
+          <span class="stat-num" data-count="420">420</span><span class="stat-unit">곳</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">한 달 예약</span>
+          <span class="stat-num" data-count="7000">7,000</span><span class="stat-unit">건</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">클래스 종류</span>
+          <span class="stat-num" data-count="6">6</span><span class="stat-unit">종</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">1인 평균 결제액</span>
+          <span class="stat-num" data-count="42000">42,000</span><span class="stat-unit">원</span>
+        </li>
       </ul>
-      <p><a href="classes.html">클래스 자세히 보고 예약하기</a></p>
+      <p class="legal">2026년 9월 기준이에요. 제휴 공방은 서울 280곳, 경기 110곳, 그 밖의 지역 30곳에 있어요.</p>
     </section>
 
-    <!-- 4. 이용 방법 (핵심 사용자 흐름 기준) -->
+    <!-- 3. 인기 클래스 3개 미리보기 (첫 화면 그림과 겹치지 않게) (시간·가격은 classes.html과 같게) -->
+    <section class="section" aria-labelledby="home-classes">
+      <h2 id="home-classes">이번 주말 인기 클래스</h2>
+      <ul class="cards">
+        <li class="card">
+          <figure class="class-photo"><img src="images/classes-pottery.svg" alt="" width="800" height="600" loading="lazy"></figure>
+          <p class="mono">2시간, 45,000원</p>
+          <h3>도자기</h3>
+          <p>물레로 컵이나 접시 하나를 직접 빚어요.</p>
+        </li>
+        <li class="card">
+          <figure class="class-photo"><img src="images/classes-baking.svg" alt="" width="800" height="600" loading="lazy"></figure>
+          <p class="mono">2시간, 39,000원</p>
+          <h3>베이킹</h3>
+          <p>휘낭시에와 마들렌을 구워 포장해 가요.</p>
+        </li>
+        <li class="card">
+          <figure class="class-photo"><img src="images/classes-flower.svg" alt="" width="800" height="600" loading="lazy"></figure>
+          <p class="mono">1.5시간, 42,000원</p>
+          <h3>플라워</h3>
+          <p>제철 꽃으로 꽃다발을 엮어요.</p>
+        </li>
+      </ul>
+      <p class="legal"><a href="classes.html">클래스 6종 모두 보고 예약하기 →</a></p>
+    </section>
+
+    <!-- 4. 이런 날 어울려요 -->
+    <section class="section" aria-labelledby="home-occasion">
+      <h2 id="home-occasion">이런 날 어울려요</h2>
+      <ul class="list">
+        <li class="list-item"><a href="classes.html">둘이서 특별한 데이트를 하고 싶은 날 <span class="tag">향수, 플라워</span></a></li>
+        <li class="list-item"><a href="classes.html">혼자 조용히 집중하고 싶은 주말 <span class="tag">드로잉, 도자기</span></a></li>
+        <li class="list-item"><a href="classes.html">친구 생일에 손으로 만든 선물을 주고 싶을 때 <span class="tag">가죽공예, 베이킹</span></a></li>
+        <li class="list-item"><a href="classes.html">회사 동료들과 함께하는 팀 활동 <span class="tag">베이킹, 플라워</span></a></li>
+      </ul>
+    </section>
+
+    <!-- 5. 예약 방법 -->
     <section class="section" aria-labelledby="home-steps">
-      <h2 id="home-steps">예약은 이렇게 해요</h2>
-      <p><img src="images/home-steps.svg" width="600" height="220"
-           alt="예약 3단계: 1단계 클래스 찾기, 2단계 날짜와 인원 고르기, 3단계 결제하면 예약 끝"></p>
+      <h2 id="home-steps">예약은 세 단계면 끝나요</h2>
+      <ol class="cards">
+        <li class="card">
+          <span class="plate">01</span>
+          <h3>클래스 고르기</h3>
+          <p>듣고 싶은 클래스와 날짜, 함께 갈 인원을 골라요.</p>
+        </li>
+        <li class="card">
+          <span class="plate">02</span>
+          <h3>간편하게 결제</h3>
+          <p>앱에서 간편결제로 한 번에 결제해요.</p>
+        </li>
+        <li class="card">
+          <span class="plate">03</span>
+          <h3>예약 완료</h3>
+          <p>공방이 확인하면 문자로 확정 안내가 와요.</p>
+        </li>
+      </ol>
     </section>
 
-    <!-- 5. 후기: 로운님이 고른 후기 2~3개를 data/reviews_30.csv에서 가져와 여기에 추가 예정 -->
+    <!-- 6. 수강생 후기 (평점·문구는 reviews.html 기준) -->
     <section class="section" aria-labelledby="home-reviews">
       <h2 id="home-reviews">먼저 다녀온 분들의 이야기</h2>
-      <p>클래스를 들은 수강생들이 남긴 후기를 모아 두었어요. <a href="reviews.html">후기 보러 가기</a></p>
+      <div class="band band--pink">
+        <p class="mono">도자기 수강생, 별점 5점</p>
+        <h3>“강사님이 하나하나 봐주셔서 좋았어요”</h3>
+        <p>수강생 평균 별점은 5점 만점에 4.5점이에요. 도자기 클래스는 4.7점으로 가장 높아요.</p>
+      </div>
+      <p class="legal"><a href="reviews.html">클래스별 후기 모두 보기 →</a></p>
     </section>
 
-    <!-- 6. 마지막 행동 유도: 히어로 버튼과 같은 곳으로 -->
+    <!-- 7. 마지막 행동 유도 -->
     <section class="section" aria-labelledby="home-cta">
-      <h2 id="home-cta">이번 주말, 손으로 하나 만들어 볼까요?</h2>
-      <p><a class="btn" href="classes.html">클래스 둘러보기</a></p>
+      <div class="band band--dark">
+        <h2 id="home-cta">이번 주말, 어떤 걸 만들어 볼까요?</h2>
+        <div class="actions">
+          <a class="btn btn--outline" href="classes.html">클래스 둘러보기</a>
+          <a class="btn btn--outline" href="location.html">오시는 길</a>
+        </div>
+      </div>
     </section>
+
+    <script>
+      // classes.html과 같은 방식: 스크롤하면 섹션이 떠오르고, 숫자는 0부터 올라감 (움직임 줄이기 설정이면 끔)
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.hero, .page .section').forEach(function (el) {
+          el.classList.add('will-reveal');
+          observer.observe(el);
+        });
+
+        var countObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            var target = Number(el.dataset.count);
+            var start = null;
+            countObserver.unobserve(el);
+            function step(now) {
+              if (start === null) start = now;
+              var t = Math.min((now - start) / 1200, 1);
+              el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))).toLocaleString('ko-KR');
+              if (t < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('[data-count]').forEach(function (el) {
+          el.textContent = '0';
+          countObserver.observe(el);
+        });
+      }
+    </script>
 
     <!-- ✏️ ===== 여기까지 담당자 작성 영역 ===== -->
   </main>
