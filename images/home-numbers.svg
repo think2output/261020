@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" width="600" height="330"
+     font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <!-- 홈 '숫자로 보는 클래스로' 인포그래픽. 값은 RULES.md 공통 정보 기준 -->
+  <rect x="1" y="1" width="598" height="328" rx="12" fill="#ffffff" stroke="#d9dbe2" stroke-width="2"/>
+
+  <!-- 큰 숫자 3개 -->
+  <g fill="#1f2a44" font-weight="700" font-size="52">
+    <text x="40" y="96">420<tspan font-size="24" dx="4">곳</tspan></text>
+    <text x="230" y="96">7천<tspan font-size="24" dx="4">건</tspan></text>
+    <text x="420" y="96">6<tspan font-size="24" dx="4">가지</tspan></text>
+  </g>
+  <g fill="#6b7280" font-size="24">
+    <text x="40" y="134">제휴 공방</text>
+    <text x="230" y="134">한 달 예약</text>
+    <text x="420" y="134">클래스 종류</text>
+  </g>
+  <path d="M210 52 v86 M400 52 v86" stroke="#d9dbe2" stroke-width="2"/>
+
+  <!-- 지역별 제휴 공방: 한 막대 안의 비율 (520px = 420곳) -->
+  <text x="40" y="200" fill="#1f2a44" font-size="24" font-weight="700">제휴 공방은 어디에 있을까요</text>
+  <rect x="40" y="220" width="345.7" height="28" rx="4" fill="#2f6f62"/>
+  <rect x="387.7" y="220" width="134.2" height="28" rx="4" fill="#2f6f62" opacity="0.65"/>
+  <rect x="523.9" y="220" width="36.1" height="28" rx="4" fill="#2f6f62" opacity="0.35"/>
+  <g font-size="22">
+    <text x="40" y="282" fill="#1f2a44">서울 <tspan font-weight="700">280곳</tspan></text>
+    <text x="387.7" y="282" fill="#1f2a44">경기 <tspan font-weight="700">110곳</tspan></text>
+    <text x="560" y="310" fill="#1f2a44" text-anchor="end">그 밖의 지역 <tspan font-weight="700">30곳</tspan></text>
+  </g>
+</svg>

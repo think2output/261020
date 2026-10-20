@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" width="600" height="220"
+     font-family="'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif">
+  <!-- 홈 '예약은 이렇게 해요' 3단계 흐름 -->
+  <g fill="none" stroke="#d9dbe2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 80 h60 m-10 -8 l10 8 l-10 8"/>
+    <path d="M350 80 h60 m-10 -8 l10 8 l-10 8"/>
+  </g>
+
+  <!-- 1. 찾기: 돋보기 -->
+  <circle cx="90" cy="80" r="52" fill="#ffffff" stroke="#d9dbe2" stroke-width="2"/>
+  <g fill="none" stroke="#1f2a44" stroke-width="5" stroke-linecap="round">
+    <circle cx="84" cy="74" r="18"/><path d="M97 87 l14 14"/>
+  </g>
+
+  <!-- 2. 고르기: 달력 -->
+  <circle cx="300" cy="80" r="52" fill="#ffffff" stroke="#d9dbe2" stroke-width="2"/>
+  <g fill="none" stroke="#1f2a44" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="276" y="60" width="48" height="44" rx="5"/><path d="M276 74 h48 M288 52 v14 M312 52 v14"/>
+  </g>
+  <rect x="300" y="82" width="12" height="12" rx="2" fill="#2f6f62"/>
+
+  <!-- 3. 예약 완료: 체크 (마지막 단계만 초록으로 채움) -->
+  <circle cx="510" cy="80" r="52" fill="#2f6f62"/>
+  <path d="M488 81 l15 15 l28 -30" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g text-anchor="middle" font-size="18" fill="#6b7280">
+    <text x="90" y="164">1단계</text><text x="300" y="164">2단계</text><text x="510" y="164">3단계</text>
+  </g>
+  <g text-anchor="middle" font-size="23" font-weight="700" fill="#1f2a44">
+    <text x="90" y="194">클래스 찾기</text>
+    <text x="300" y="194">날짜와 인원 고르기</text>
+    <text x="510" y="194">결제하면 예약 끝</text>
+  </g>
+</svg>
