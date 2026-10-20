@@ -44,7 +44,7 @@ PR 머지도 조장이 한다.
 ## 작업 순서
 1. GitHub 초대 메일 수락
 2. `git clone https://github.com/think2output/261020.git`
-3. `git checkout -b feature/담당메뉴`
+3. `git checkout feature/담당메뉴` (브랜치는 이미 만들어져 있음)
 4. 담당 파일 작업 → 브라우저로 열어서 확인 (휴대폰 폭에서도 확인)
 5. `git add 내파일` → `git commit -m "[담당메뉴] 한 일"` → `git push origin feature/담당메뉴`
 6. GitHub에서 Pull Request 생성, 위 표의 "리뷰해 줄 사람" 지정

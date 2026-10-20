@@ -6,7 +6,7 @@
 ```bash
 git clone https://github.com/think2output/261020.git
 cd 261020
-git checkout -b feature/담당메뉴
+git checkout feature/담당메뉴   # 브랜치는 이미 만들어져 있음
 ```
 `index.html`을 브라우저로 열면 바로 보입니다. 따로 설치할 것은 없습니다.
 
