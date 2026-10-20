@@ -33,3 +33,5 @@ git checkout feature/담당메뉴   # 브랜치는 이미 만들어져 있음
 | `.info-table` | 정보 표 |
 | `.map` | 지도 iframe 감싸기 |
 | `.form-row` | 예약 폼 한 줄 (라벨 + 입력) |
+| `.tag` | 알약 모양 라벨 (클래스 종류, 키워드 등) |
+| `.band` | 색 띠 박스 (기본 그린 / `.band--dark` `.band--lime` `.band--pink`) |
