@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ⚠️ 공통 메뉴: 수정 금지 (바꾸고 싶으면 조장에게 요청) -->
+  <!-- ⚠️ 공통 메뉴: 수정 금지 (바꾸고 싶으면 조장에게 요청)하기 -->
   <header class="site-header">
     <a class="logo" href="index.html">클래스로</a>
     <nav class="site-nav" aria-label="주요 메뉴">
@@ -28,7 +28,307 @@
          ※ 실제 결제는 없음. 버튼을 누르면 '예약 요청 완료' 안내만 보여주면 됨 -->
     <!-- 가격은 1인 42,000원 근처로 (클래스별로 조금씩 달라도 됨) -->
 
-    <p class="placeholder">여기에 내용 작성</p>
+    <section class="hero" aria-label="클래스 소개">
+      <div>
+        <p class="display">손으로 만드는 하루,<br>동네 공방에서.</p>
+        <div class="actions">
+          <a class="btn" href="#booking">예약하기</a>
+          <a class="btn btn--outline" href="#class-list">클래스 둘러보기</a>
+        </div>
+      </div>
+      <p class="lead">제휴 공방 420곳의 원데이 클래스 6종을 한곳에 모았어요. 날짜와 인원만 고르면 바로 예약 요청이 들어가요.</p>
+      <div class="hero-media">
+        <figure class="class-photo">
+          <img src="images/classes-pottery.svg" alt="도자기 클래스 예시 이미지" width="800" height="600">
+        </figure>
+        <figure class="class-photo">
+          <img src="images/classes-flower.svg" alt="플라워 클래스 예시 이미지" width="800" height="600">
+        </figure>
+        <figure class="class-photo">
+          <img src="images/classes-baking.svg" alt="베이킹 클래스 예시 이미지" width="800" height="600">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="class-list">
+      <h2>클래스 6종</h2>
+      <div class="tabs" role="tablist" aria-label="클래스 종류">
+          <button class="tab" type="button" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">도자기</button>
+          <button class="tab" type="button" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">베이킹</button>
+          <button class="tab" type="button" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">가죽공예</button>
+          <button class="tab" type="button" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">플라워</button>
+          <button class="tab" type="button" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1">드로잉</button>
+          <button class="tab" type="button" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1">향수</button>
+      </div>
+        <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+          <div>
+            <p class="mono">CLASS 01</p>
+            <h3>도자기</h3>
+            <p>물레로 컵·접시 하나를 직접 빚어요. 초벌·재벌 후 2주 뒤 택배로 받아요.</p>
+            <table class="info-table">
+              <tr><th>소요 시간</th><td>2시간</td></tr>
+              <tr><th>1인 가격</th><td>45,000원</td></tr>
+              <tr><th>제휴 공방</th><td>약 120곳</td></tr>
+            </table>
+          </div>
+          <figure class="class-photo">
+            <img src="images/classes-pottery.svg" alt="도자기 클래스 예시 이미지" width="800" height="600" loading="lazy">
+          </figure>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+          <div>
+            <p class="mono">CLASS 02</p>
+            <h3>베이킹</h3>
+            <p>휘낭시에·마들렌을 구워 포장해 가요. 레시피 카드도 함께 드려요.</p>
+            <table class="info-table">
+              <tr><th>소요 시간</th><td>2시간</td></tr>
+              <tr><th>1인 가격</th><td>39,000원</td></tr>
+              <tr><th>제휴 공방</th><td>약 85곳</td></tr>
+            </table>
+          </div>
+          <figure class="class-photo">
+            <img src="images/classes-baking.svg" alt="베이킹 클래스 예시 이미지" width="800" height="600" loading="lazy">
+          </figure>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+          <div>
+            <p class="mono">CLASS 03</p>
+            <h3>가죽공예</h3>
+            <p>손바느질로 카드지갑을 완성해요. 이니셜 각인은 무료예요.</p>
+            <table class="info-table">
+              <tr><th>소요 시간</th><td>2.5시간</td></tr>
+              <tr><th>1인 가격</th><td>48,000원</td></tr>
+              <tr><th>제휴 공방</th><td>약 60곳</td></tr>
+            </table>
+          </div>
+          <figure class="class-photo">
+            <img src="images/classes-leather.svg" alt="가죽공예 클래스 예시 이미지" width="800" height="600" loading="lazy">
+          </figure>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" hidden>
+          <div>
+            <p class="mono">CLASS 04</p>
+            <h3>플라워</h3>
+            <p>제철 꽃으로 핸드타이드 꽃다발을 만들어요.</p>
+            <table class="info-table">
+              <tr><th>소요 시간</th><td>1.5시간</td></tr>
+              <tr><th>1인 가격</th><td>42,000원</td></tr>
+              <tr><th>제휴 공방</th><td>약 70곳</td></tr>
+            </table>
+          </div>
+          <figure class="class-photo">
+            <img src="images/classes-flower.svg" alt="플라워 클래스 예시 이미지" width="800" height="600" loading="lazy">
+          </figure>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" hidden>
+          <div>
+            <p class="mono">CLASS 05</p>
+            <h3>드로잉</h3>
+            <p>오일파스텔로 작은 풍경화 한 점을 그려요. 액자에 넣어 가져가요.</p>
+            <table class="info-table">
+              <tr><th>소요 시간</th><td>2시간</td></tr>
+              <tr><th>1인 가격</th><td>36,000원</td></tr>
+              <tr><th>제휴 공방</th><td>약 45곳</td></tr>
+            </table>
+          </div>
+          <figure class="class-photo">
+            <img src="images/classes-drawing.svg" alt="드로잉 클래스 예시 이미지" width="800" height="600" loading="lazy">
+          </figure>
+        </div>
+        <div class="panel" role="tabpanel" id="panel-6" aria-labelledby="tab-6" hidden>
+          <div>
+            <p class="mono">CLASS 06</p>
+            <h3>향수</h3>
+            <p>나만의 향을 조향해 30ml 향수로 담아요.</p>
+            <table class="info-table">
+              <tr><th>소요 시간</th><td>1.5시간</td></tr>
+              <tr><th>1인 가격</th><td>42,000원</td></tr>
+              <tr><th>제휴 공방</th><td>약 40곳</td></tr>
+            </table>
+          </div>
+          <figure class="class-photo">
+            <img src="images/classes-perfume.svg" alt="향수 클래스 예시 이미지" width="800" height="600" loading="lazy">
+          </figure>
+        </div>
+      <p class="legal">* 가격은 1인 기준, 재료비 포함 · 제휴 공방 수는 예시</p>
+    </section>
+
+    <section class="section" aria-labelledby="stats-title">
+      <h2 id="stats-title">숫자로 보는 클래스로</h2>
+      <ul class="stats">
+        <li class="stat">
+          <span class="stat-label">제휴 공방</span>
+          <span class="stat-num" data-count="420">420</span><span class="stat-unit">곳</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">월 예약</span>
+          <span class="stat-num" data-count="7000">7,000</span><span class="stat-unit">건</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">클래스 종류</span>
+          <span class="stat-num" data-count="6">6</span><span class="stat-unit">종</span>
+        </li>
+        <li class="stat">
+          <span class="stat-label">평균 결제액</span>
+          <span class="stat-num" data-count="42000">42,000</span><span class="stat-unit">원</span>
+        </li>
+      </ul>
+      <p class="legal">* 2026년 9월 기준 · 평균 결제액은 1인 기준</p>
+    </section>
+
+    <section class="section">
+      <h2>예약 방법</h2>
+      <ol class="cards">
+        <li class="card">
+          <span class="plate">01</span>
+          <h3>클래스·날짜·인원 선택</h3>
+          <p>듣고 싶은 클래스와 날짜, 함께 갈 인원을 골라요.</p>
+        </li>
+        <li class="card">
+          <span class="plate">02</span>
+          <h3>결제</h3>
+          <p>1인 금액 × 인원으로 결제해요.</p>
+        </li>
+        <li class="card">
+          <span class="plate">03</span>
+          <h3>예약 완료</h3>
+          <p>공방이 확인하면 문자로 확정 안내가 와요.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section booking" id="booking">
+      <div>
+        <h2>예약하기</h2>
+        <p class="lead">원하는 날짜를 남겨 주시면 공방에서 확인 후 연락드려요.</p>
+        <p class="legal">* 수업용 페이지라 실제 결제는 없어요</p>
+      </div>
+      <div class="form-card">
+        <form id="booking-form">
+          <div class="form-row">
+            <label for="class-select">클래스</label>
+            <select id="class-select" name="class" required>
+              <option value="도자기">도자기</option>
+              <option value="베이킹">베이킹</option>
+              <option value="가죽공예">가죽공예</option>
+              <option value="플라워">플라워</option>
+              <option value="드로잉">드로잉</option>
+              <option value="향수">향수</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="class-date">날짜</label>
+            <input id="class-date" name="date" type="date" required>
+          </div>
+          <div class="form-row">
+            <label for="class-people">인원</label>
+            <input id="class-people" name="people" type="number" min="1" max="8" value="1" required>
+          </div>
+          <button class="btn" type="submit">예약 요청하기</button>
+        </form>
+        <div class="band" id="booking-done" role="status" hidden>
+          <strong>예약 요청이 접수됐어요.</strong> 공방에서 확인 후 문자로 안내해 드립니다.
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // 클래스 탭: 클릭하거나 ←/→ 키로 전환
+      var tabs = document.querySelectorAll('.tab');
+      function selectTab(tab) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', on);
+          t.tabIndex = on ? 0 : -1;
+          document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        });
+        tab.focus();
+      }
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { selectTab(tab); });
+        tab.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') selectTab(tabs[(i + 1) % tabs.length]);
+          if (e.key === 'ArrowLeft') selectTab(tabs[(i - 1 + tabs.length) % tabs.length]);
+        });
+      });
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 스크롤하면 섹션이 하나씩 떠오름
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.hero, .page .section').forEach(function (el) {
+          el.classList.add('will-reveal');
+          observer.observe(el);
+        });
+      }
+
+      // 사진이 마우스를 살짝 따라 움직임
+      if (!reduceMotion) {
+        document.querySelectorAll('.panel').forEach(function (panel) {
+          var photo = panel.querySelector('.class-photo img');
+          panel.addEventListener('pointermove', function (e) {
+            var r = panel.getBoundingClientRect();
+            photo.style.setProperty('--tx', ((e.clientX - r.left) / r.width - 0.5) * -12 + 'px');
+            photo.style.setProperty('--ty', ((e.clientY - r.top) / r.height - 0.5) * -12 + 'px');
+          });
+          panel.addEventListener('pointerleave', function () {
+            photo.style.setProperty('--tx', '0px');
+            photo.style.setProperty('--ty', '0px');
+          });
+        });
+      }
+
+      // 숫자: 화면에 보이면 0부터 목표값까지 올라감 (한 번만)
+      var counters = document.querySelectorAll('[data-count]');
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        var countObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            var target = Number(el.dataset.count);
+            var start = null;
+            countObserver.unobserve(el);
+            function step(now) {
+              if (start === null) start = now;
+              var t = Math.min((now - start) / 1200, 1);
+              var eased = 1 - Math.pow(1 - t, 3);
+              el.textContent = Math.round(target * eased).toLocaleString('ko-KR');
+              if (t < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }, { threshold: 0.5 });
+        counters.forEach(function (el) {
+          el.textContent = '0';
+          countObserver.observe(el);
+        });
+      }
+
+      // 예약 요청: 버튼이 잠깐 '요청 중'으로 바뀐 뒤 완료 안내
+      document.getElementById('booking-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var button = this.querySelector('.btn');
+        var done = document.getElementById('booking-done');
+        done.hidden = true;
+        button.setAttribute('aria-busy', 'true');
+        button.disabled = true;
+        button.textContent = '요청 중…';
+        setTimeout(function () {
+          button.removeAttribute('aria-busy');
+          button.disabled = false;
+          button.textContent = '예약 요청하기';
+          done.hidden = false;
+        }, 600);
+      });
+    </script>
 
     <!-- ✏️ ===== 여기까지 담당자 작성 영역 ===== -->
   </main>
