@@ -1,0 +1,137 @@
+/* =========================================================================
+   reviews.css — 후기 페이지 전용
+   팀 공통 style.css(v3) 위에서 후기 화면에만 필요한 모양을 더한다.
+   버튼·태그·카드는 style.css의 .btn / .tag / .card 를 그대로 쓴다.
+   ========================================================================= */
+
+[hidden] { display: none !important; }
+
+/* 글자 역할 */
+.rv-heading { margin: 0; font-size: clamp(1.75rem, 4vw, 2.625rem); line-height: 1.3; font-weight: 700; letter-spacing: -0.03em; }
+.rv-heading-sm { margin: 0; font-size: 1.25rem; line-height: 1.35; font-weight: 700; letter-spacing: -0.03em; }
+.rv-subheading { margin: 0; color: var(--body); font-size: clamp(1.0625rem, 2vw, 1.25rem); line-height: 1.6; }
+.rv-body { margin: 0; color: var(--body); }
+.rv-caption { margin: 0; color: var(--muted); font-size: 0.8125rem; }
+.rv-eyebrow { margin: 0; color: var(--muted); font-size: 0.8125rem; font-weight: 700; }
+.rv-flecha { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.rv-section-head { display: grid; gap: 12px; margin-bottom: 40px; max-width: 720px; }
+
+/* 부품 */
+
+.rv-tag-line { background: var(--paper); border: 1px solid var(--line); }
+
+.rv-link-ghost { color: var(--ink); font-size: 0.9375rem; font-weight: 700; }
+.rv-info { margin: 0; display: grid; }
+.rv-info > div { display: grid; grid-template-columns: minmax(120px, 35%) 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.rv-info dt { color: var(--muted); font-size: 0.875rem; display: flex; align-items: center; }
+.rv-info dd { margin: 0; font-weight: 700; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+
+/* 페이지 */
+.page > h1 { margin-bottom: 16px; }
+.rv-toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.rv-toc a { text-decoration: none; }
+.rv-section, .rv-band { margin-top: 120px; scroll-margin-top: 80px; }
+.rv-band { padding: 56px; border-radius: var(--radius-lg); background: var(--surface); }
+
+.rv-hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; margin-top: 80px; scroll-margin-top: 80px; }
+.rv-quote { margin: 0; display: grid; gap: 16px; }
+.rv-quote blockquote { margin: 0; }
+.rv-score { display: grid; gap: 8px; background: var(--surface); border: 0; border-radius: var(--radius-lg); }
+.rv-score h2 { margin: 0; font-size: 0.875rem; color: var(--muted); font-weight: 700; }
+.rv-score__num { margin: 0; display: flex; align-items: baseline; gap: 6px; }
+.rv-score__num .rv-flecha { font-size: clamp(3rem, 7vw, 4.5rem); font-weight: 700; line-height: 1; }
+.rv-score__num span:last-child { color: var(--muted); font-size: 1.5rem; font-weight: 700; }
+.rv-dist { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+.rv-dist li { display: grid; grid-template-columns: 32px 1fr 56px; gap: 12px; align-items: center; font-size: 0.875rem; }
+.rv-dist li span:first-child { color: var(--body); }
+.rv-dist li span:last-child { color: var(--muted); text-align: right; }
+.rv-bar { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.rv-bar span { display: block; height: 100%; width: var(--w); border-radius: inherit; background: var(--ink); }
+
+.rv-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rv-summary .rv-heading-sm { margin-bottom: 12px; }
+.rv-theme { list-style: none; margin: 0; padding: 0; }
+.rv-theme li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--body); }
+.rv-theme li:last-child { border-bottom: 0; }
+.rv-subtitle { margin: 48px 0 8px; }
+.rv-icon { width: 36px; height: 27px; margin-right: 10px; border-radius: 8px; object-fit: cover; }
+
+/* 별점 필터: v3 탭 모양 (회색 묶음 + 선택은 검정과 주황 점) */
+.rv-filter { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: var(--radius-pill); background: var(--surface); }
+.rv-filter[hidden] { display: none !important; }
+.rv-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--muted);
+  font: inherit; font-size: 0.875rem; font-weight: 700;
+  cursor: pointer;
+}
+.rv-chip:hover { color: var(--ink); }
+.rv-chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.rv-chip[aria-pressed="true"]::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--spark); }
+.rv-filter-status { min-height: 20px; margin: 12px 0 16px; }
+
+/* 클래스별 후기: 펼치면 클래스 색 패널 */
+.rv-accordion { display: grid; gap: 12px; }
+.rv-acc { border-radius: var(--radius-lg); background: var(--surface); overflow: hidden; }
+.rv-acc[open] { background: var(--tint-peach); }
+#class-reviews .rv-acc:nth-child(2)[open] { background: var(--tint-butter); }
+#class-reviews .rv-acc:nth-child(3)[open] { background: var(--tint-rose); }
+#class-reviews .rv-acc:nth-child(4)[open] { background: var(--tint-mint); }
+#class-reviews .rv-acc:nth-child(5)[open] { background: var(--tint-sky); }
+#class-reviews .rv-acc:nth-child(6)[open] { background: var(--tint-lilac); }
+.rv-acc summary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 16px 56px 16px 16px; position: relative; cursor: pointer; list-style: none; }
+.rv-acc summary::-webkit-details-marker { display: none; }
+.rv-acc summary::after {
+  content: "+";
+  position: absolute; right: 20px; top: 50%;
+  display: grid; place-items: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--paper);
+  font-weight: 700;
+  transform: translateY(-50%);
+}
+.rv-acc[open] summary::after { content: "−"; }
+.rv-acc__title { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.03em; }
+.rv-acc__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.rv-acc__meta .tag { background: var(--paper); }
+.rv-acc__kw { color: var(--muted); font-size: 0.875rem; }
+.rv-acc__body { padding: 0 16px 24px; display: grid; gap: 20px; justify-items: start; }
+.rv-thumb { width: 88px; height: 66px; border-radius: 12px; object-fit: cover; background: var(--paper); }
+
+.rv-grid { list-style: none; margin: 0; padding: 0; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.rv-review { display: grid; align-content: start; gap: 10px; padding: 24px; border: 0; }
+.rv-review blockquote { margin: 0; font-weight: 700; line-height: 1.5; }
+.rv-stars { margin: 0; letter-spacing: 2px; font-size: 0.875rem; }
+.rv-stars .off { color: var(--line); }
+
+/* 후기 남기기: v3 예약 영역 모양 */
+.rv-write { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 64px; align-items: start; }
+.rv-form { display: grid; gap: 16px; }
+.rv-field { display: grid; gap: 8px; }
+.rv-field label { font-size: 0.875rem; font-weight: 700; }
+.rv-field select, .rv-field textarea {
+  min-height: 52px; padding: 12px 16px;
+  border: 2px solid transparent; border-radius: var(--radius-input);
+  background: var(--surface); color: var(--ink); font: inherit;
+}
+.rv-field textarea { min-height: 120px; }
+.rv-field select:focus, .rv-field textarea:focus { border-color: var(--ink); background: var(--paper); outline: 0; }
+.rv-form .btn { width: 100%; }
+.rv-done { margin: 0; padding: 16px 20px; border-radius: var(--radius); background: var(--tint-mint); font-weight: 700; }
+
+.rv-faq .rv-acc__title { font-size: 1rem; }
+
+@media (max-width: 900px) {
+  .rv-hero, .rv-write { grid-template-columns: 1fr; }
+  .rv-grid { grid-template-columns: repeat(2, 1fr); }
+  .rv-band { padding: 24px; }
+}
+@media (max-width: 600px) {
+  .rv-summary, .rv-grid { grid-template-columns: 1fr; }
+  .rv-thumb { width: 56px; height: 42px; }
+}
