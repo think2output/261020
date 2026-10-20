@@ -1,6 +1,7 @@
 /* =========================================================================
    about.css — 회사소개 페이지 레이아웃 & 모션
-   (토큰·컴포넌트는 design-system.css, 여기서는 페이지 고유 패턴만)
+   테마: design.md v3 (style.css 와 같은 미색 종이 · Pretendard 700 · 검정 알약 버튼)
+   공통 메뉴·푸터 스타일은 style.css 를 그대로 쓰고, 여기서는 페이지 고유 패턴만
    ========================================================================= */
 
 /* ---------- Page transition / progress ---------- */
@@ -25,10 +26,10 @@
 }
 @keyframes curtain-spark {
   0% {
-    box-shadow: 0 0 0 0 rgba(255, 89, 0, 0.35);
+    box-shadow: 0 0 0 0 rgba(255, 71, 4, 0.35);
   }
   100% {
-    box-shadow: 0 0 0 22px rgba(255, 89, 0, 0);
+    box-shadow: 0 0 0 22px rgba(255, 71, 4, 0);
   }
 }
 .is-loaded .page-curtain {
@@ -52,7 +53,7 @@
 .scroll-progress span {
   display: block;
   height: 100%;
-  background: var(--color-ember);
+  background: var(--color-ink);
   transform-origin: 0 50%;
   transform: scaleX(var(--progress, 0));
 }
@@ -84,88 +85,6 @@
   background: var(--color-mist);
 }
 
-/* ---------- Header (공통 메뉴 마크업 그대로, 스타일만) ---------- */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 24px;
-  padding: 14px max(var(--gutter), calc((100% - var(--page-max-width)) / 2));
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: saturate(1.6) blur(14px);
-  -webkit-backdrop-filter: saturate(1.6) blur(14px);
-  box-shadow: inset 0 -1px 0 transparent;
-  transition:
-    transform var(--dur-base) var(--ease-out),
-    box-shadow var(--dur-base);
-}
-.is-scrolled .site-header {
-  box-shadow: inset 0 -1px 0 var(--color-hairline);
-}
-.is-header-hidden .site-header {
-  transform: translateY(-100%);
-}
-
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  color: var(--color-ink);
-  font-size: 20px;
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: -0.03em;
-  text-decoration: none;
-}
-.logo::after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  margin-left: 3px;
-  border-radius: 50%;
-  background: var(--color-ember);
-  align-self: flex-end;
-  margin-bottom: 6px;
-  animation: ds-pulse 2.4s var(--ease-in-out) infinite;
-}
-.site-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 28px;
-}
-.site-nav a {
-  position: relative;
-  padding: 6px 0;
-  color: var(--color-ink);
-  font-size: var(--text-body-sm);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
-}
-.site-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--color-ink);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform var(--dur-base) var(--ease-out);
-}
-.site-nav a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-.site-nav a[aria-current="page"]::after {
-  background: var(--color-ember);
-  transform: scaleX(1);
-}
-
 /* ---------- Page title (회사소개) ---------- */
 .page {
   position: relative;
@@ -175,29 +94,18 @@
   gap: 12px;
   max-width: calc(var(--page-max-width) + var(--gutter) * 2);
   margin: 0 auto;
-  padding: clamp(48px, 8vw, 112px) var(--gutter) clamp(32px, 4vw, 48px);
+  padding: 80px var(--gutter) 32px;
 }
 .page-title__en {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: var(--text-caption);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--color-pewter);
-}
-.page-title__en::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-ember);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 .page-title__ko {
-  font-size: clamp(56px, 10vw, 50px);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.125rem, 5vw, 3.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
   font-weight: var(--font-weight-semibold);
 }
 section[id] {
@@ -643,14 +551,9 @@ section[id] {
   width: 100%;
   height: 124%;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.05) brightness(1.08);
   transform: translate3d(0, var(--parallax, 0px), 0);
   transition: filter var(--dur-slow) var(--ease-out);
 }
-.story__photo:hover img {
-  filter: grayscale(0);
-}
-
 /* =========================================================================
    3. CORE VALUES
    ========================================================================= */
@@ -906,20 +809,19 @@ section[id] {
   box-shadow: none;
   transform: scale(1.12);
 }
-/* 현재 단계: Ember 파동 */
-.flow__step[aria-selected="true"] .flow__node {
-  animation: step-ping 1.8s var(--ease-out) infinite;
-}
-@keyframes step-ping {
-  from {
-    box-shadow: 0 0 0 0 rgba(255, 89, 0, 0.45);
-  }
-  to {
-    box-shadow: 0 0 0 16px rgba(255, 89, 0, 0);
-  }
+/* 현재 단계: 이름 앞 오렌지 점 (style.css 선택 탭과 같은 표시) */
+.flow__step[aria-selected="true"] .flow__name::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--color-ember);
+  vertical-align: middle;
 }
 .flow__step:last-child[aria-selected="true"] .flow__node {
-  background: var(--color-ember);
+  background: var(--color-ink);
 }
 
 /* 상세 */
@@ -1225,7 +1127,7 @@ section[id] {
   stroke: var(--color-mist);
 }
 .scr__ember-fill {
-  fill: var(--color-ember);
+  fill: var(--color-ink);
 }
 .scr__pay {
   transform-box: fill-box;
@@ -1620,12 +1522,12 @@ section[id] {
 }
 .tl-item--now .tl-item__dot {
   background: var(--color-ember);
-  box-shadow: 0 0 0 0 rgba(255, 89, 0, 0.4);
+  box-shadow: 0 0 0 0 rgba(255, 71, 4, 0.4);
   animation: now-ping 2s var(--ease-out) infinite;
 }
 @keyframes now-ping {
   to {
-    box-shadow: 0 0 0 12px rgba(255, 89, 0, 0);
+    box-shadow: 0 0 0 12px rgba(255, 71, 4, 0);
   }
 }
 .tl-item--next {
@@ -1767,13 +1669,14 @@ section[id] {
 .org__list button::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 12px;
-  bottom: 12px;
-  width: 3px;
-  border-radius: 3px;
+  left: -2px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
   background: var(--color-ember);
-  transform: scaleY(0);
+  transform: scale(0);
   transition: transform var(--dur-base) var(--ease-out);
 }
 .org__list button:hover,
@@ -1781,7 +1684,7 @@ section[id] {
   background: var(--color-fog);
 }
 .org__list button.is-active::before {
-  transform: scaleY(1);
+  transform: scale(1);
 }
 .org__list b {
   font-size: 22px;
@@ -1923,32 +1826,6 @@ section[id] {
   margin-top: 48px;
 }
 
-/* ---------- Dark footer (Abyss) ---------- */
-.site-footer {
-  display: grid;
-  gap: 6px;
-  padding: 64px max(var(--gutter), calc((100% - var(--page-max-width)) / 2))
-    48px;
-  background: var(--surface-abyss-footer);
-  color: var(--color-mist);
-  font-size: var(--text-body-sm);
-}
-.site-footer::before {
-  content: "클래스로";
-  margin-bottom: 24px;
-  color: var(--color-paper);
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-}
-.site-footer p {
-  margin: 0;
-}
-.site-footer p + p {
-  color: var(--color-steel);
-  font-size: var(--text-caption);
-}
-
 /* =========================================================================
    Responsive
    ========================================================================= */
@@ -2017,11 +1894,231 @@ section[id] {
   .stat {
     min-height: 0;
   }
-  .site-nav {
-    gap: 4px 18px;
-  }
   .mission div {
     grid-template-columns: 1fr;
     gap: 2px;
   }
+}
+
+/* =========================================================================
+   design.md v3 테마 — classes.html 과 같은 디자인 언어
+   design-system.css 의 토큰을 style.css 팔레트로 다시 연결한다.
+   (구조·클래스 이름은 그대로, 값만 교체)
+   ========================================================================= */
+:root {
+  /* 색: 미색 종이 · 웜 토프 · 스톤 · 검정 / 오렌지는 선택 표시 점에만 */
+  --color-paper: #fdfcfc;
+  --color-fog: #f5f3f1;
+  --color-hairline: #ebe8e4;
+  --color-mist: #ebe8e4;
+  --color-steel: #a59f97;
+  --color-pewter: #777169;
+  --color-graphite: #44403b;
+  --color-ink: #000000;
+  --color-carbon: #000000;
+  --color-abyss: #000000;
+  --color-ember: #ff4704;
+  --color-ember-soft: rgba(255, 71, 4, 0.14);
+
+  /* 글꼴: Pretendard 하나, 제목·숫자 700 */
+  --font-inter: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-flecha: var(--font-inter);
+  --font-features: normal;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 700;
+
+  /* 글자 크기 (design.md Type Scale) */
+  --text-display: clamp(34px, 5vw, 56px);
+  --leading-display: 1.25;
+  --tracking-display: -0.03em;
+  --text-heading-lg: clamp(28px, 4vw, 42px);
+  --leading-heading-lg: 1.3;
+  --tracking-heading-lg: -0.03em;
+  --text-heading: clamp(22px, 3vw, 28px);
+  --leading-heading: 1.35;
+  --tracking-heading: -0.02em;
+  --text-heading-sm: clamp(20px, 2.4vw, 22px);
+  --text-subheading: clamp(18px, 2vw, 20px);
+  --leading-subheading: 1.6;
+  --leading-body: 1.65;
+
+  /* 여백·모서리·그림자 */
+  --page-max-width: 1152px;
+  --gutter: 24px;
+  --section-gap: 160px;
+  --card-padding: 32px;
+  --radius-tags: 999px;
+  --radius-cards: 16px;
+  --radius-buttons: 999px;
+  --radius-inputs: 12px;
+  --shadow-float: 0 8px 24px rgba(26, 28, 32, 0.08);
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* style.css 의 같은 이름 클래스(.page, .hero, .stat)가 이 페이지 레이아웃을 건드리지 않도록 */
+main.page {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+section.hero,
+section.stats {
+  display: block;
+}
+.stats__grid .stat,
+.stats__grid .stat:first-child,
+.stats__grid .stat:nth-child(odd) {
+  padding: var(--card-padding);
+  border-left: 0;
+}
+
+::selection {
+  background: var(--color-hairline);
+  color: var(--color-ink);
+}
+
+/* 작은 라벨 = style.css 의 .mono (점 없이) */
+.ds-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-pewter);
+}
+.ds-eyebrow::before {
+  display: none;
+}
+
+/* 버튼 = 검정 알약 */
+.ds-btn {
+  min-height: 0;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.ds-btn--ember {
+  --btn-bg: var(--color-ink);
+}
+.ds-btn:hover {
+  opacity: 0.88;
+}
+.ds-btn::after {
+  display: none;
+}
+.ds-link-ghost {
+  font-weight: 700;
+}
+.ds-link-ghost svg {
+  color: var(--color-ink);
+}
+
+/* 카드 = 스톤 테두리 16px, 마우스 올릴 때만 부드러운 그림자 */
+.ds-card::before {
+  display: none;
+}
+.ds-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 0 1px var(--color-hairline),
+    var(--shadow-float);
+}
+.ds-section--fog .ds-card:hover {
+  box-shadow: var(--shadow-float);
+}
+.ds-tag {
+  padding: 4px 12px;
+  font-weight: 700;
+}
+
+/* 정보 표 = style.css 의 .info-table 과 같은 모양 */
+.ds-info dt {
+  color: var(--color-pewter);
+  font-weight: 400;
+}
+.ds-info dd {
+  font-weight: 700;
+}
+
+/* 숫자는 Pretendard 700 + 고정폭 숫자 */
+.ds-flecha {
+  font-family: var(--font-inter);
+  font-stretch: normal;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.orbit__hub-mark,
+.tangle__hub-text,
+.scr__price {
+  font-stretch: normal;
+  font-weight: 700;
+}
+.stat__value .ds-flecha {
+  font-size: clamp(32px, 4.5vw, 48px);
+}
+.stat__approx,
+.stat__unit {
+  font-weight: 700;
+  color: var(--color-pewter);
+}
+
+/* 핵심 가치 카드 = 클래스 패널처럼 옅은 따뜻한 톤 */
+.values__grid .value {
+  box-shadow: none;
+}
+.values__grid .value:nth-child(1) {
+  background: #f8f0ea;
+}
+.values__grid .value:nth-child(2) {
+  background: #f7f2e6;
+}
+.values__grid .value:nth-child(3) {
+  background: #f7eeee;
+}
+.values__grid .value:nth-child(4) {
+  background: #eff3ee;
+}
+.values__grid .value:hover {
+  box-shadow: var(--shadow-float);
+}
+.leader {
+  background: #f2eff4;
+  box-shadow: none;
+}
+
+/* 공지 띠: 검정 대신 웜 토프 면 */
+.ds-announce {
+  background: var(--color-fog);
+  color: var(--color-graphite);
+  border-bottom: 1px solid var(--color-hairline);
+}
+.ds-announce a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 궤도 꼬리는 가늘게 */
+.orbit__tail {
+  stroke-width: 2;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --gutter: 16px;
+    --section-gap: 96px;
+    --card-padding: 24px;
+  }
+  .page-title {
+    padding-top: 48px;
+  }
+}
+
+/* 마무리 섹션은 미색 바탕으로 — 아래 공통 푸터(웜 토프)와 구분 */
+.ds-section--fog.closing {
+  background: var(--color-paper);
+  border-top: 1px solid var(--color-hairline);
+}
+.closing .closing__contact {
+  box-shadow: inset 0 0 0 1px var(--color-hairline);
 }

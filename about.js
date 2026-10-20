@@ -152,7 +152,7 @@
     { name: '운영·CS', n: 5 },
     { name: '경영지원', n: 2 },
   ];
-  const SHADES = ['#000000', '#2b2f36', '#60646c', '#8b8d98', '#b9bbc6', '#d6d7de'];
+  const SHADES = ['#000000', '#2b2825', '#44403b', '#777169', '#a59f97', '#d6d1ca'];
   const waffle = $('[data-waffle]');
   const orgList = $('[data-org-list]');
   const orgCount = $('[data-org-count]');
@@ -181,7 +181,7 @@
       cells.forEach((cell) => {
         const ct = +cell.dataset.team;
         const on = t === -1 || ct === t;
-        cell.style.fill = t === -1 ? SHADES[ct] : on ? '#000000' : '#e3e4ea';
+        cell.style.fill = t === -1 ? SHADES[ct] : on ? '#000000' : '#ebe8e4';
         cell.classList.toggle('is-hi', t !== -1 && on);
       });
       buttons.forEach((b) => b.classList.toggle('is-active', +b.dataset.team === t));
